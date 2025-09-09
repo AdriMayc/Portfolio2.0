@@ -23,18 +23,18 @@ const Navbar = ({
         >
           {currentContent.nav_about}
         </Link>
-        <a
-          href="#projects"
+        <Link
+          to="/projects"
           className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_projects}
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link
+          to="/contact"
           className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_contact}
-        </a>
+        </Link>
         <button
           onClick={toggleLanguage}
           className={`transition-colors font-semibold text-sm cursor-pointer ${themeClasses.textSubtle} ${themeClasses.textHover}`}

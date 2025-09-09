@@ -272,6 +272,8 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             {currentContent.projects}
                             <ArrowRightIcon />
                         </Link>
+
+                        
                     </div>
                 </main>
             </div>

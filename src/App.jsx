@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
 import Loader from "./components/Loader";
 
 function App() {
@@ -44,6 +45,17 @@ function App() {
           path="/projects"
           element={
             <Projects
+              theme={theme}
+              toggleTheme={toggleTheme}
+              language={language}
+              toggleLanguage={toggleLanguage}
+            />
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Contact
               theme={theme}
               toggleTheme={toggleTheme}
               language={language}
