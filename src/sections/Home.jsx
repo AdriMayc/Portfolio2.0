@@ -85,7 +85,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
           <h1 className="text-4xl md:text-5xl font-light tracking-widest uppercase mb-8">
             {currentContent.title}
           </h1>
-          <div className={`max-w-3xl space-y-6 leading-relaxed font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
+          <div className={`max-w-5xl space-y-6 leading-relaxed font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
             <p>{currentContent.p1}</p>
             <p>
               {currentContent.p2_1}{" "}

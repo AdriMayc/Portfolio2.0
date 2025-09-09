@@ -12,9 +12,9 @@ const Navbar = ({
   themeClasses,
 }) => {
   return (
-    <header className="flex justify-between items-center mb-20 ">
+    <header className="flex justify-between items-center mb-20 ml-5">
       <Link to="/" aria-label="Home">
-        <AsteriskIcon theme={theme} />
+        <span className="font-bold underline">Home</span>
       </Link>
       <nav className="flex items-center space-x-6 md:space-x-8">
         <Link

@@ -209,8 +209,8 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
         textStrong: theme === 'light' ? 'text-gray-800' : 'text-gray-100',
         textHover: theme === 'light' ? 'hover:text-gray-900' : 'hover:text-white',
         textHoverBlack: theme === 'light' ? 'hover:text-black' : 'hover:text-white',
-        shapeBorder: theme === 'light' ? 'border-gray-200/50' : 'border-gray-700/50',
-        shapeBg: theme === 'light' ? 'bg-gray-100/50' : 'bg-gray-800/50',
+        shapeBorder: theme === 'light' ? 'border-gray-200/90' : 'border-gray-700/50',
+        shapeBg: theme === 'light' ? 'bg-gray-100/30' : 'bg-gray-800/30',
     };
 
     return (
@@ -280,10 +280,10 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             <ArrowRightIcon />
                         </Link>
 
-<div className="flex items-center space-x-6 mt-10">
-            <SocialIcon d={socialIcons.linkedin} theme={theme} />
-            <SocialIcon d={socialIcons.github} theme={theme} />
-          </div>
+                        <div className="flex items-center space-x-6 mt-10">
+                            <SocialIcon d={socialIcons.linkedin} theme={theme} />
+                            <SocialIcon d={socialIcons.github} theme={theme} />
+                        </div>
                     </div>
                 </main>
             </div>
