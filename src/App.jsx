@@ -1,17 +1,59 @@
-import React from "react";
+// src/App.jsx
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./sections/Home";
 import About from "./sections/About";
+import Projects from "./sections/Projects";
 import Loader from "./components/Loader";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("pt");
 
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const toggleLanguage = () => setLanguage(language === "pt" ? "en" : "pt");
 
   return (
-    <div>
-      <Loader />
-      <Home />
-    </div>
-
+    <Router>
+      <div>
+        <Loader />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                theme={theme}
+                toggleTheme={toggleTheme}
+                language={language}
+                toggleLanguage={toggleLanguage}
+              />
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <About
+                theme={theme}
+                toggleTheme={toggleTheme}
+                language={language}
+                toggleLanguage={toggleLanguage}
+              />
+            }
+          />
+        <Route
+          path="/projects"
+          element={
+            <Projects
+              theme={theme}
+              toggleTheme={toggleTheme}
+              language={language}
+              toggleLanguage={toggleLanguage}
+            />
+          }
+        />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

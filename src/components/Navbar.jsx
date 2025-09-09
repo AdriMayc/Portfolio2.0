@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import { AsteriskIcon, MoonIcon, SunIcon } from "./icons";
 
 const Navbar = ({
@@ -11,25 +12,25 @@ const Navbar = ({
   themeClasses,
 }) => {
   return (
-    <header className="flex justify-between items-center mb-20">
-      <a href="#" aria-label="Home">
+    <header className="flex justify-between items-center mb-20 ">
+      <Link to="/" aria-label="Home">
         <AsteriskIcon theme={theme} />
-      </a>
+      </Link>
       <nav className="flex items-center space-x-6 md:space-x-8">
-        <a
-          href="#"
+        <Link
+          to="/about"
           className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_about}
-        </a>
+        </Link>
         <a
-          href="#"
+          href="#projects"
           className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_projects}
         </a>
         <a
-          href="#"
+          href="#contact"
           className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_contact}
