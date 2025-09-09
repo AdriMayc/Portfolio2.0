@@ -59,8 +59,7 @@ export const SunIcon = () => (
 
 export const SocialIcon = ({ d, theme }) => (
   <a
-    href="#"
-    className={`transition-colors ${
+    className={`transition-colors cursor-pointer${
       theme === "light"
         ? "text-gray-700 hover:text-gray-900"
         : "text-gray-300 hover:text-white"

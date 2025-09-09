@@ -1,5 +1,5 @@
 // src/sections/Home.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import RotatedGridBackground from "../components/Grid";
@@ -41,6 +41,11 @@ const content = {
 
 export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
   const currentContent = content[language];
+
+  useEffect(() => {
+    document.title = "Home | Adriano Mayco";
+  }, []);
+
 
   const themeClasses = {
     bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black",
@@ -107,9 +112,22 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             <ArrowRightIcon />
           </Link>
 
-          <div className="flex items-center space-x-6 mt-10">
-            <SocialIcon d={socialIcons.linkedin} theme={theme} />
-            <SocialIcon d={socialIcons.github} theme={theme} />
+          <div className="flex items-center space-x-6 mt-10 ml-2">
+            <a
+              href="https://www.linkedin.com/in/adriano-mayco/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialIcon d={socialIcons.linkedin} theme={theme} />
+            </a>
+
+            <a
+              href="https://github.com/AdriMayc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialIcon d={socialIcons.github} theme={theme} />
+            </a>
           </div>
         </main>
       </div>

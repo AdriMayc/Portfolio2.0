@@ -1,5 +1,5 @@
 // src/sections/About.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import RotatedGridBackground from "../components/Grid";
@@ -202,6 +202,11 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
     const [openEducation, setOpenEducation] = useState(0);
     const currentContent = content[language];
 
+
+    useEffect(() => {
+        document.title = "About | Adriano Mayco";
+    }, []);
+
     const themeClasses = {
         bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black",
         text: theme === 'light' ? 'text-gray-800' : 'text-gray-200',
@@ -280,9 +285,22 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             <ArrowRightIcon />
                         </Link>
 
-                        <div className="flex items-center space-x-6 mt-10">
-                            <SocialIcon d={socialIcons.linkedin} theme={theme} />
-                            <SocialIcon d={socialIcons.github} theme={theme} />
+                        <div className="flex items-center space-x-6 mt-10 ml-2">
+                            <a
+                                href="https://www.linkedin.com/in/adriano-mayco/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <SocialIcon d={socialIcons.linkedin} theme={theme} />
+                            </a>
+
+                            <a
+                                href="https://github.com/AdriMayc"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <SocialIcon d={socialIcons.github} theme={theme} />
+                            </a>
                         </div>
                     </div>
                 </main>

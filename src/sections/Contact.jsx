@@ -1,5 +1,5 @@
 // src/sections/Contact.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import emailjs from '@emailjs/browser'; // Importa a biblioteca do EmailJS
 import RotatedGridBackground from "../components/Grid";
@@ -21,7 +21,7 @@ const content = {
         intro: "Entre em contato ou envie-me um e-mail diretamente em",
         email: "contato@adrianomayco.site",
         name_placeholder: "Nome",
-        email_placeholder: "Email",
+        email_placeholder: "Seu Email",
         message_placeholder: "Mensagem",
         send_message: "Enviar Mensagem",
         sending_message: "Enviando...",
@@ -37,7 +37,7 @@ const content = {
         intro: "Get in touch or shoot me an email directly on",
         email: "contato@adrianomayco.site",
         name_placeholder: "Name",
-        email_placeholder: "Email",
+        email_placeholder: "Your Email",
         message_placeholder: "Message",
         send_message: "Send Message",
         sending_message: "Sending...",
@@ -54,6 +54,11 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
     const [formData, setFormData] = useState({ from_name: '', from_email: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [statusMessage, setStatusMessage] = useState('');
+
+    useEffect(() => {
+        document.title = "Contact | Adriano Mayco";
+    }, []);
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -199,9 +204,23 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                     </Link>
 
                     <div className="flex items-center space-x-6 mt-10 ml-2">
-                        <SocialIcon d={socialIcons.linkedin} theme={theme} />
-                        <SocialIcon d={socialIcons.github} theme={theme} />
+                        <a
+                            href="https://www.linkedin.com/in/adriano-mayco/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <SocialIcon d={socialIcons.linkedin} theme={theme} />
+                        </a>
+
+                        <a
+                            href="https://github.com/AdriMayc"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <SocialIcon d={socialIcons.github} theme={theme} />
+                        </a>
                     </div>
+
                 </main>
             </div>
         </div>

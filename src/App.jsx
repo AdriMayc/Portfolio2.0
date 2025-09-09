@@ -41,28 +41,28 @@ function App() {
               />
             }
           />
-        <Route
-          path="/projects"
-          element={
-            <Projects
-              theme={theme}
-              toggleTheme={toggleTheme}
-              language={language}
-              toggleLanguage={toggleLanguage}
-            />
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <Contact
-              theme={theme}
-              toggleTheme={toggleTheme}
-              language={language}
-              toggleLanguage={toggleLanguage}
-            />
-          }
-        />
+          <Route
+            path="/projects"
+            element={
+              <Projects
+                theme={theme}
+                toggleTheme={toggleTheme}
+                language={language}
+                toggleLanguage={toggleLanguage}
+              />
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Contact
+                theme={theme}
+                toggleTheme={toggleTheme}
+                language={language}
+                toggleLanguage={toggleLanguage}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
