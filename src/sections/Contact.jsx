@@ -17,7 +17,7 @@ const content = {
         nav_about: "Sobre",
         nav_projects: "Projetos",
         nav_contact: "Contato",
-        title: "Contato.",
+        title: "Contato",
         intro: "Entre em contato ou envie-me um e-mail diretamente em",
         email: "contato@adrianomayco.site",
         name_placeholder: "Nome",
@@ -33,7 +33,7 @@ const content = {
         nav_about: "About",
         nav_projects: "Projects",
         nav_contact: "Contact",
-        title: "Contact.",
+        title: "Contact",
         intro: "Get in touch or shoot me an email directly on",
         email: "contato@adrianomayco.site",
         name_placeholder: "Name",
@@ -133,7 +133,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
 
                 {/* Main content */}
                 <main className="relative z-10 w-full max-w-5xl mt-32">
-                    <h1 className="text-4xl md:text-5xl font-light tracking-widest uppercase mb-8">
+                    <h1 className="text-5xl md:text-6xl font-light tracking-widest uppercase mb-8">
                         {currentContent.title}
                     </h1>
                     <p className={`max-w-xl text-lg mb-8 ${themeClasses.textSubtle}`}>

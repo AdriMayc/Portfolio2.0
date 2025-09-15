@@ -19,7 +19,7 @@ const content = {
     p1: "Estou me formando em Ciência de Dados e buscando uma especialização em Engenharia de Dados. Sou apaixonado por converter grandes volumes de dados em histórias significativas.",
     p2_1: "É divertido para mim explorar ferramentas como Python, SQL e AWS e observar cada pipeline em funcionamento como uma pequena obra de engenharia. Meus",
     p2_projects: "PROJETOS",
-    p2_2: "são meu laboratório: ali experimento, aprendo e crio soluções que poderiam ajudar empresas a enxergar o que antes era invisível. Se desejar conversar mais, é só entrar em",
+    p2_2: "são meu laboratório: ali experimento, aprendo e crio soluções que poderiam ajudar empresas a enxergar o que antes era invisível. Além disso, gosto de compartilhar experiências e explorar novas possibilidades. E se quiser conversar mais, basta entrar em",
     p2_contact: "CONTATO.",
     cta: "Ver Mais Sobre Mim",
   },
@@ -31,7 +31,7 @@ const content = {
     p1: "I'm graduating in Data Science and pursuing a specialization in Data Engineering. I am passionate about turning large volumes of data into meaningful stories.",
     p2_1: "I have fun exploring tools like Python, SQL, and AWS, and watching each pipeline work like a small piece of engineering. My",
     p2_projects: "PROJECTS",
-    p2_2: "are my laboratory: there I experiment, learn, and create solutions that could help companies see what was previously invisible. If you'd like to chat more, just get in",
+    p2_2: "are my laboratory: there I experiment, learn, and create solutions that could help companies see what was previously invisible. In addition, I enjoy exchanging experiences and investigating new possibilities. If you would like to talk, please enter ",
     p2_contact: "CONTACT.",
     cta: "See More About Me",
   },
@@ -61,7 +61,6 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
   return (
     <div className={`relative font-sans w-full min-h-screen overflow-hidden transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
       <RotatedGridBackground theme={theme} />
-
 
       {/* Shapes - mantive as mesmas posições do About */}
       <div className={`absolute -top-20 -left-20 w-80 h-80 border-8 rounded-full transition-colors ${themeClasses.shapeBorder}`}></div>
@@ -94,13 +93,21 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             <p>{currentContent.p1}</p>
             <p>
               {currentContent.p2_1}{" "}
+              <Link
+              to="/projects"
+              >
               <strong className={`font-semibold ${themeClasses.textStrong}`}>
                 {currentContent.p2_projects}
               </strong>{" "}
+              </Link>
+              <Link
+              to="/contact"
+              >
               {currentContent.p2_2}{" "}
               <strong className={`font-semibold ${themeClasses.textStrong}`}>
                 {currentContent.p2_contact}
-              </strong>
+                </strong>
+              </Link>
             </p>
           </div>
 
