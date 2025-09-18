@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-export default function ProjectCard({ imageSrc, altText, title, description, tags = [] }) {
+export default function ProjectCard({ imageSrc, altText, title, description, tags = [], onClick }) {
   return (
-    <div className="h-96 rounded-2xl overflow-hidden group relative cursor-pointer bg-black">
+    <div onClick={onClick} className="h-96 rounded-2xl overflow-hidden group relative cursor-pointer bg-black">
       
       {/* Imagem de Fundo */}
       <img

@@ -48,7 +48,7 @@ const experienceData = [
         pt: {
             title: "Analista de E-commerce",
             company: "Plantei Garden Center",
-            description: "Elaborei um script em Python (Selenium) para automatizar o registro de produtos na plataforma utilizando um banco de dados em Excel / Google Sheets, o que diminuiu em 80% o tempo operacional e eliminou 95% dos erros manuais. Organizei rotinas de tratamento e consolidação de dados de vendas, priorizando o faturamento líquido, os produtos mais vendidos e o efeito das promoções. Isso contribuiu para análises estratégicas e visualizações no Power BI. Trabalho com rotinas de E-commerce, que envolvem o companhamento de vendas, gerenciamento de promoções, atualização do catálogo de produtos, definição de preços e monitoramento de indicadores de desempenho para melhorar os resultados.",
+            description: "Elaborei um script em Python (Selenium) para automatizar o registro de produtos na plataforma com a utilização um banco de dados em Excel / Google Sheets, o que diminuiu em 80% o tempo operacional e eliminou 95% dos erros manuais. Organizei rotinas de tratamento e consolidação de dados de vendas, priorizando o faturamento líquido, os produtos mais vendidos e o efeito das promoções. Isso contribuiu para análises estratégicas e visualizações no Power BI. Trabalho com rotinas de E-commerce, que envolvem o companhamento de vendas, gerenciamento de promoções, atualização do catálogo de produtos, definição de preços e monitoramento de indicadores de desempenho para melhorar os resultados.",
         },
         en: {
             title: "E-commerce Analyst",
@@ -69,7 +69,7 @@ const experienceData = [
         pt: {
             title: "Assistente Administrativo e E-commerce",
             company: "Plantei Garden Center",
-            description: "Comecei minha atuação no setor fiscal, lidando com a emissão de notas fiscais e garantindo a conformidade tributária. Diminuí o tempo médio de atraso no processamento de pedidos de 3 dias para menos de 24 horas, melhorando a eficiência da operação em mais de 65%. Apliquei melhorias de SEO que aumentaram em aproximadamente 10% a visibilidade orgânica da loja. Administrei o e-commerce em marketplaces, que começou a corresponder a 20% a 30% da receita bruta depois de somente um mês de funcionamento. Empreguei o Excel Google Sheets para realizar análises de custos e margens, bem como para desenvolver estratégias de atendimento visando aprimorar a experiência do cliente."
+            description: "Comecei minha atuação no setor fiscal, atuando com a emissão de notas fiscais e garantindo a conformidade tributária. Diminuí o tempo médio de atraso no processamento de pedidos de 3 dias para menos de 24 horas, otimizando a eficiência da operação em mais de 65%. Apliquei melhorias de SEO que aumentaram em aproximadamente 10% a visibilidade orgânica da loja. Administrei o e-commerce em marketplaces, que começou a corresponder a 20% a 30% da receita bruta depois de somente um mês de funcionamento. Empreguei o Excel Google Sheets para realizar análises de custos e margens, bem como para desenvolver estratégias de atendimento, visando aprimorar a experiência do cliente."
         },
         en: {
             title: "Administrative and E-commerce Assistant",
