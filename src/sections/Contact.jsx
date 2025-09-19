@@ -119,7 +119,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
 
                 {/* Navbar */}
                 <div className="absolute top-0 left-0 w-full ">
-                    <div className="relative z-20 w-full max-w-6xl mx-auto px-8 py-16">
+                    <div className="relative z-20 w-full max-w-6xl mx-auto px-8 pt-16 md:py-16">
                         <Navbar
                             theme={theme}
                             toggleTheme={toggleTheme}

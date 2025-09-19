@@ -154,7 +154,7 @@ const AccordionItem = ({ item, isOpen, onClick, theme, language }) => {
                     <div className={`${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>{isOpen ? <MinusIcon /> : <PlusIcon />}</div>
                 </div>
             </button>
-            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[800px] md:max-h-[600px]' : 'max-h-0'}`}>
                 <div className="p-6 pt-0 bg-transparent">
                     <div className={`flex items-center text-sm mb-4 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}><LocationIcon theme={theme} /> {currentLocation}</div>
                     <p className={`leading-relaxed mb-6 font-light ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>{currentLangItem.description}</p>
@@ -224,7 +224,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
             <RotatedGridBackground theme={theme} />
             {/* Navbar real com as mesmas props da Home */}
             <div className="relative z-20 w-full">
-                <div className="max-w-6xl mx-auto px-8 py-16">
+                <div className="max-w-6xl mx-auto px-8 pt-16 md:py-16">
                     <Navbar
                         theme={theme}
                         toggleTheme={toggleTheme}
