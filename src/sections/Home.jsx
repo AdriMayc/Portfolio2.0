@@ -20,7 +20,7 @@ const content = {
     p2_1: "É desafiador explorar ferramentas como Python, SQL e AWS e observar cada pipeline em funcionamento como uma pequena obra de engenharia. Meus",
     p2_projects: "PROJETOS",
     p2_2: "são meu laboratório: ali experimento, aprendo e crio soluções que poderiam ajudar empresas a enxergar o que antes era invisível. Além disso, gosto de compartilhar experiências e explorar novas possibilidades. E se quiser conversar mais, basta entrar em",
-    p2_contact: "CONTATO.",
+    p2_contact: " CONTATO.",
     cta: "Ver Mais Sobre Mim",
   },
   en: {
@@ -72,7 +72,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
 
         {/* Navbar - agora posicionada igual ao About */}
         <div className="absolute top-0 left-0 w-full">
-          <div className="relative z-10 w-full max-w-6xl mx-auto md:px-8 py-16 ">
+          <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 py-16 ">
             <Navbar
               theme={theme}
               toggleTheme={toggleTheme}

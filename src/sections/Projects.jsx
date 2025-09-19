@@ -109,7 +109,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   return (
     <div className={`relative font-sans w-full min-h-screen overflow-hidden transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
       <RotatedGridBackground theme={theme} />
-      <div className="relative z-10 w-full">
+      <div className="relative z-20 w-full">
         <div className="max-w-6xl mx-auto px-8 py-16">
           <Navbar theme={theme} toggleTheme={toggleTheme} language={language} toggleLanguage={toggleLanguage} currentContent={currentContent} themeClasses={themeClasses} />
         </div>

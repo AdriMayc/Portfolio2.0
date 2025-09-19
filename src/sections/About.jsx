@@ -170,7 +170,7 @@ const TopicSection = ({ topic, children, theme }) => (
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:pr-8">
             <h2 className={`text-2xl font-light tracking-wider sticky top-24 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>{topic}</h2>
         </div>
-        <div className="w-full md:w-3/4">
+        <div className="w-full md:w-3/4 ">
             <div className={`rounded-lg overflow-hidden border ${theme === 'light' ? 'border-gray-300' : 'border-gray-700'}`}>{children}</div>
         </div>
     </div>
@@ -223,7 +223,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
 
             <RotatedGridBackground theme={theme} />
             {/* Navbar real com as mesmas props da Home */}
-            <div className="relative z-10 w-full">
+            <div className="relative z-20 w-full">
                 <div className="max-w-6xl mx-auto px-8 py-16">
                     <Navbar
                         theme={theme}
