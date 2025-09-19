@@ -68,11 +68,11 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
       <div className={`absolute top-[55%] -right-24 w-60 h-60 rounded-full transition-colors ${themeClasses.shapeBg}`}></div>
 
       {/* Content - mesma estrutura do About */}
-      <div className="relative w-full flex justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative w-full flex justify-center pt-10 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8">
 
         {/* Navbar - agora posicionada igual ao About */}
         <div className="absolute top-0 left-0 w-full">
-          <div className="relative z-10 w-full max-w-6xl mx-auto px-8 py-16">
+          <div className="relative z-10 w-full max-w-6xl mx-auto md:px-8 py-16 ">
             <Navbar
               theme={theme}
               toggleTheme={toggleTheme}
