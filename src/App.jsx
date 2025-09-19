@@ -6,6 +6,7 @@ import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import Loader from "./components/Loader";
+import ScrollToTop from "./components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <Router>
+       <ScrollToTop duration={700} />
       <div>
         <Loader />
         <Routes>
