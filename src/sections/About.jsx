@@ -36,9 +36,41 @@ const content = {
 
 const experienceData = [
     {
+    date: {
+        pt: "Dez 2025 - Atual",
+        en: "Dec 2025 - Present"
+    },
+    location: {
+        pt: "Remoto",
+        en: "Remote"
+    },
+    tags: [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "SQLAlchemy",
+        "Alembic",
+        "React",
+        "TypeScript",
+        "REST API"
+    ],
+    pt: {
+        title: "Desenvolvedor Backend / Full Stack",
+        company: "Solução para Negócio Local (Freelance)",
+        description: "Desenvolvi um sistema integrado para gestão de pedidos e operações de uma lanchonete, centralizando pedidos online e presenciais, pagamentos, status, impressão e relatórios operacionais, do zero utilizando Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, React e TypeScript. Implementei um modelo relacional completo com controle transacional e integridade referencial, garantindo consistência dos dados ao longo de todo o fluxo operacional. Fui responsável pela arquitetura do back-end, modelagem e persistência dos dados, definição das regras de negócio e exposição da API REST, assegurando separação clara entre camadas e confiabilidade do sistema."
+    },
+    en: {
+        title: "Backend / Full Stack Developer",
+        company: "Local Business Solution (Freelance)",
+        description: "I developed an integrated system to manage orders and operations for a local restaurant, centralizing online and in-person orders, payments, statuses, printing, and operational reports from scratch using Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, React, and TypeScript. I implemented a complete relational data model with transactional control and referential integrity, ensuring data consistency throughout the entire operational flow. I was responsible for backend architecture, data modeling and persistence, business rule definition, and REST API exposure, ensuring clear layer separation and system reliability."
+    }
+    },
+
+    {
+        
         date: {
-            pt: "Fev 2025 - Atual",
-            en: "Feb 2025 - Present"
+            pt: "Fev 2025 - Dez 2025",
+            en: "Feb 2025 - Dec 2025"
         },
         location: {
             pt: "Remoto",
