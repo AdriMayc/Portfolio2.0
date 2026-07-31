@@ -36,37 +36,6 @@ const content = {
 
 const experienceData = [
     {
-    date: {
-        pt: "Dez 2025 - Atual",
-        en: "Dec 2025 - Present"
-    },
-    location: {
-        pt: "Remoto",
-        en: "Remote"
-    },
-    tags: [
-        "Python",
-        "FastAPI",
-        "PostgreSQL",
-        "SQLAlchemy",
-        "Alembic",
-        "React",
-        "TypeScript",
-        "REST API"
-    ],
-    pt: {
-        title: "Desenvolvedor Backend / Full Stack",
-        company: "Solução para Negócio Local (Freelance)",
-        description: "Desenvolvi um sistema integrado para gestão de pedidos e operações de uma lanchonete, centralizando pedidos online e presenciais, pagamentos, status, impressão e relatórios operacionais, do zero utilizando Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, React e TypeScript. Implementei um modelo relacional completo com controle transacional e integridade referencial, garantindo consistência dos dados ao longo de todo o fluxo operacional. Fui responsável pela arquitetura do back-end, modelagem e persistência dos dados, definição das regras de negócio e exposição da API REST, assegurando separação clara entre camadas e confiabilidade do sistema."
-    },
-    en: {
-        title: "Backend / Full Stack Developer",
-        company: "Local Business Solution (Freelance)",
-        description: "I developed an integrated system to manage orders and operations for a local restaurant, centralizing online and in-person orders, payments, statuses, printing, and operational reports from scratch using Python, FastAPI, PostgreSQL, SQLAlchemy, Alembic, React, and TypeScript. I implemented a complete relational data model with transactional control and referential integrity, ensuring data consistency throughout the entire operational flow. I was responsible for backend architecture, data modeling and persistence, business rule definition, and REST API exposure, ensuring clear layer separation and system reliability."
-    }
-    },
-
-    {
         
         date: {
             pt: "Fev 2025 - Dez 2025",
@@ -114,8 +83,8 @@ const experienceData = [
 const educationData = [
     {
         date: {
-            pt: "2025 - Cursando (2º Semestre)",
-            en: "2025 – Currently Enrolled (2nd Semester)"
+            pt: "Previsão de conclusão: Dezembro de 2027",
+            en: "Expected graduation: December 2027"
         },
         location: {
             pt: "Ourinhos, SP",
@@ -133,38 +102,16 @@ const educationData = [
             description: "Superior training aimed at converting data into actionable insights by combining analysis, processing, and visualization to support strategic decisions in various organizational contexts.",
         }
     },
-    {
-        date: {
-            pt: "2025 - Em Andamento",
-            en: "2025 – In Progress"
-        },
-        location: {
-            pt: "Online",
-            en: "Online"
-        },
-        tags: ["AWS", "Google Cloud", "Azure"],
-        pt: {
-            title: "Estudos para Certificações em Cloud",
-            company: "Estudos Autodirigidos",
-            description: "Treinamento contínuo para certificações nas principais plataformas de nuvem, focado em arquitetura e serviços de dados, com o objetivo de aplicar conhecimentos em projetos de engenharia de dados.",
-        },
-        en: {
-            title: "Studies for Cloud Certifications",
-            company: "Self-directed Studies",
-            description: "Constant preparation for certifications on the main cloud platforms, geared toward architecture and data services, with an eye toward practical implementation in data engineering projects.",
-        }
-    },
 ];
 
 const skillsData = {
     "Linguagens & Programação": ["Python", "SQL", "Bash/Shell Script"],
-    "Bancos de Dados": ["PostgreSQL", "MySQL", "MongoDB (NoSQL)"],
-    "Big Data & Processamento": ["Apache Spark", "Hadoop (conceitos)"],
-    "Mensageria & Streaming": ["Apache Kafka", "Spark Structured Streaming"],
+    "Bancos de Dados": ["PostgreSQL", "MySQL"],
+    "Big Data & Processamento": ["Apache Spark"],
     "Orquestração & ETL": ["Apache Airflow", "Pandas"],
     "Cloud & Infraestrutura": ["AWS (S3, Redshift, Glue, EMR, Lambda)", "Docker"],
     "Versionamento & Colaboração": ["Git / GitHub"],
-    "Visualização": ["Metabase", "Power BI", "Streamlit"]
+    "Visualização": ["Metabase", "Power BI"]
 };
 
 // --- COMPONENTES INTERNOS DA PÁGINA ---

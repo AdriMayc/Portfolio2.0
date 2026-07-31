@@ -1,7 +1,6 @@
 // src/sections/Contact.jsx
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import emailjs from '@emailjs/browser'; // Importa a biblioteca do EmailJS
 import RotatedGridBackground from "../components/Grid";
 
 import Navbar from "../components/Navbar";
@@ -18,76 +17,27 @@ const content = {
         nav_projects: "Projetos",
         nav_contact: "Contato",
         title: "Contato",
-        intro: "Entre em contato ou envie-me um e-mail diretamente em",
-        email: "contato@adrianomayco.site",
-        name_placeholder: "Nome",
-        email_placeholder: "Seu Email",
-        message_placeholder: "Mensagem",
-        send_message: "Enviar Mensagem",
-        sending_message: "Enviando...",
+        intro: "Entre em contato diretamente em",
+        email: "amayco@outlook.com.br",
         go_back_home: "Voltar para Home",
-        success_message: "Mensagem enviada com sucesso! Obrigado.",
-        error_message: "Ocorreu um erro ao enviar a mensagem. Tente novamente."
     },
     en: {
         nav_about: "About",
         nav_projects: "Projects",
         nav_contact: "Contact",
         title: "Contact",
-        intro: "Get in touch or shoot me an email directly on",
-        email: "contato@adrianomayco.site",
-        name_placeholder: "Name",
-        email_placeholder: "Your Email",
-        message_placeholder: "Message",
-        send_message: "Send Message",
-        sending_message: "Sending...",
+        intro: "Get in touch directly at",
+        email: "amaico@outlook.com.br",
         go_back_home: "Go Back Home",
-        success_message: "Message sent successfully! Thank you.",
-        error_message: "An error occurred while sending the message. Please try again."
     },
 };
 
 export default function Contact({ theme, toggleTheme, language, toggleLanguage }) {
     const currentContent = content[language];
 
-    // Estados para controlar o formulário
-    const [formData, setFormData] = useState({ from_name: '', from_email: '', message: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [statusMessage, setStatusMessage] = useState('');
-
     useEffect(() => {
         document.title = "Contact | Adriano Mayco";
     }, []);
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Impede o recarregamento da página
-        setIsSubmitting(true);
-        setStatusMessage('');
-
-        emailjs.send(
-            'service_ubet1jn',
-            'template_lgi59cp',
-            formData,
-            'kYf5WQGEEQHQslz05'
-        )
-            .then((result) => {
-                console.log('SUCCESS!', result.text);
-                setStatusMessage(currentContent.success_message);
-                setFormData({ from_name: '', from_email: '', message: '' }); // Limpa o formulário
-            }, (error) => {
-                console.log('FAILED...', error.text);
-                setStatusMessage(currentContent.error_message);
-            })
-            .finally(() => {
-                setIsSubmitting(false);
-            });
-    };
 
     const themeClasses = {
         bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black", text: theme === "light" ? "text-gray-800" : "text-gray-200",
@@ -97,11 +47,6 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
         textHoverBlack: theme === "light" ? "hover:text-black" : "hover:text-white",
         shapeBorder: theme === "light" ? "border-gray-200/50" : "border-gray-700/50",
         shapeBg: theme === "light" ? "bg-gray-100/50" : "bg-gray-800/50",
-        inputBg: theme === "light" ? "bg-white" : "bg-gray-800",
-        inputBorder: theme === "light" ? "border-gray-300" : "border-gray-700",
-        inputPlaceholder: theme === "light" ? "placeholder-gray-400" : "placeholder-gray-500",
-        buttonBg: theme === "light" ? "bg-black text-white" : "bg-white text-black",
-        buttonHover: theme === "light" ? "hover:bg-gray-800" : "hover:bg-gray-200",
     };
 
     return (
@@ -145,55 +90,6 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                             {currentContent.email}
                         </a>
                     </p>
-
-                    <form onSubmit={handleSubmit} className="max-w-xl space-y-6">
-                        <div>
-                            <input
-                                type="text"
-                                name="from_name"
-                                placeholder={currentContent.name_placeholder}
-                                value={formData.from_name}
-                                onChange={handleChange}
-                                required
-                                className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400/20 ${themeClasses.inputBg} ${themeClasses.inputBorder} ${themeClasses.text} ${themeClasses.inputPlaceholder}`}
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="email"
-                                name="from_email"
-                                placeholder={currentContent.email_placeholder}
-                                value={formData.from_email}
-                                onChange={handleChange}
-                                required
-                                className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400/20 ${themeClasses.inputBg} ${themeClasses.inputBorder} ${themeClasses.text} ${themeClasses.inputPlaceholder}`}
-                            />
-                        </div>
-                        <div>
-                            <textarea
-                                name="message"
-                                placeholder={currentContent.message_placeholder}
-                                rows="6"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400/20 ${themeClasses.inputBg} ${themeClasses.inputBorder} ${themeClasses.text} ${themeClasses.inputPlaceholder}`}
-                            ></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className={`inline-flex items-center px-6 py-3 rounded-full font-medium transition-colors cursor-pointer ${themeClasses.buttonBg} ${themeClasses.buttonHover} ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        >
-                            {isSubmitting ? currentContent.sending_message : currentContent.send_message}
-                        </button>
-                    </form>
-
-                    {statusMessage && (
-                        <p className={`mt-4 ${statusMessage.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}>
-                            {statusMessage}
-                        </p>
-                    )}
 
                     <Link
                         to="/"

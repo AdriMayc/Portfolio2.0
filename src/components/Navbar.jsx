@@ -59,19 +59,19 @@ const Navbar = ({
       <nav className="hidden md:flex items-center space-x-6 md:space-x-8">
         <Link
           to="/about"
-          className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+          className={`nav-underline-anim transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_about}
         </Link>
         <Link
           to="/projects"
-          className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+          className={`nav-underline-anim transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_projects}
         </Link>
         <Link
           to="/contact"
-          className={`transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+          className={`nav-underline-anim transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {currentContent.nav_contact}
         </Link>
@@ -142,21 +142,21 @@ const Navbar = ({
               <Link
                 to="/about"
                 onClick={handleLinkClick}
-                className={`text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_about.toUpperCase()}
               </Link>
               <Link
                 to="/projects"
                 onClick={handleLinkClick}
-                className={`text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_projects.toUpperCase()}
               </Link>
               <Link
                 to="/contact"
                 onClick={handleLinkClick}
-                className={`text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_contact.toUpperCase()}
               </Link>
