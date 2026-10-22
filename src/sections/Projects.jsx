@@ -1,5 +1,4 @@
 // src/sections/Projects.jsx
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -129,12 +128,18 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
       <div className="relative w-full flex justify-center pb-16 px-4 sm:px-6 lg:px-8">
         <Reveal className="relative z-10 w-full max-w-5xl">
         <main>
-            <h1 className={`text-5xl md:text-6xl font-light tracking-widest uppercase mb-24 text-center ${themeClasses.textStrong}`}>
-              {currentContent.title}
-            </h1>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="mb-12 md:mb-20">
+              <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${theme === "light" ? "text-gray-500" : "text-gray-400"}`}>
+                02
+                <span className="projects-eyebrow-rule h-px w-10 bg-current" aria-hidden="true"></span>
+              </div>
+              <h1 className={`text-4xl font-light uppercase leading-tight tracking-[0.12em] md:text-6xl ${themeClasses.textStrong}`}>
+                {currentContent.title}
+              </h1>
+            </div>
+            <div className="w-full grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="flex flex-col gap-8">
-                {column1Projects.map((project) => ( 
+                {column1Projects.map((project) => (
                   <ProjectCard 
                     key={getProjectContent(project, 'title')} 
                     title={getProjectContent(project, 'title')}
@@ -146,7 +151,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
                 ))}
               </div>
               <div className="flex flex-col gap-8 md:mt-16">
-                {column2Projects.map((project) => ( 
+                {column2Projects.map((project) => (
                   <ProjectCard 
                     key={getProjectContent(project, 'title')} 
                     title={getProjectContent(project, 'title')}
@@ -184,7 +189,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
           <div className="relative h-full w-full flex flex-col">
             <button 
                 onClick={handleBackClick} 
-                className={`absolute top-6 right-6 z-20 transition-colors
+                className={`absolute top-6 right-6 z-20 transition-colors cursor-pointer
                           ${theme === 'light' 
                             ? 'text-gray-600 hover:text-gray-900' 
                             : 'text-gray-300 hover:text-white'}`}

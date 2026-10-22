@@ -60,6 +60,15 @@ html {
   width: 4rem;
 }
 
+.projects-eyebrow-rule {
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+}
+
+.reveal-visible .projects-eyebrow-rule {
+  width: 2.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -70,6 +79,12 @@ html {
   .about-rule,
   .reveal-visible .about-rule {
     width: 4rem;
+    transition: none;
+  }
+
+  .projects-eyebrow-rule,
+  .reveal-visible .projects-eyebrow-rule {
+    width: 2.5rem;
     transition: none;
   }
 }
