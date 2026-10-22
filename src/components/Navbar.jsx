@@ -50,9 +50,9 @@ const Navbar = ({
   }, [isMenuOpen]);
 
   return (
-    <header className="relative flex justify-between items-center mb-20 p-4 md:p-0">
+    <header className="relative flex justify-between items-center mb-20 p-4 md:p-0 ">
       <Link to="/" aria-label="Home" onClick={handleLinkClick}>
-        <span className="font-bold underline text-lg">Home</span>
+        <span className="home-link font-bold text-lg py-2">Home</span>
       </Link>
 
       {/* Navegação Desktop */}
