@@ -11,6 +11,7 @@ const RotatedGridBackground = ({ theme }) => {
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const supportsPointerInteraction = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const shouldAnimate = !reducedMotion;
     const cellSize = 48;
     const scale = 2.2;
     const rotation = -Math.PI / 4;
@@ -22,6 +23,7 @@ const RotatedGridBackground = ({ theme }) => {
     let deviceScale = 1;
     let animationFrame;
     let previousTime = performance.now();
+    const fixedMobileHeight = window.innerHeight;
 
     const color = theme === "light" ? "71,85,105" : "148,163,184";
     const effectOpacity = 0.6;
@@ -58,7 +60,7 @@ const RotatedGridBackground = ({ theme }) => {
     const resize = () => {
       deviceScale = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
-      height = window.innerHeight;
+      height = supportsPointerInteraction ? window.innerHeight : fixedMobileHeight;
       canvas.width = width * deviceScale;
       canvas.height = height * deviceScale;
       particles = Array.from({ length: width < 600 ? 5 : 9 }, createParticle);
@@ -211,7 +213,7 @@ const RotatedGridBackground = ({ theme }) => {
         context.fill();
       }
 
-      if (!reducedMotion) animationFrame = requestAnimationFrame(draw);
+      if (shouldAnimate) animationFrame = requestAnimationFrame(draw);
     };
 
     const handlePointerMove = (event) => {
@@ -228,8 +230,11 @@ const RotatedGridBackground = ({ theme }) => {
       window.addEventListener("pointermove", handlePointerMove, { passive: true });
       window.addEventListener("pointerleave", handlePointerLeave);
     }
-    window.addEventListener("resize", resize);
-    if (!reducedMotion) animationFrame = requestAnimationFrame(draw);
+    if (supportsPointerInteraction) {
+      window.addEventListener("resize", resize);
+    }
+    draw(performance.now());
+    if (shouldAnimate) animationFrame = requestAnimationFrame(draw);
 
     return () => {
       cancelAnimationFrame(animationFrame);
@@ -237,14 +242,16 @@ const RotatedGridBackground = ({ theme }) => {
         window.removeEventListener("pointermove", handlePointerMove);
         window.removeEventListener("pointerleave", handlePointerLeave);
       }
-      window.removeEventListener("resize", resize);
+      if (supportsPointerInteraction) {
+        window.removeEventListener("resize", resize);
+      }
     };
   }, [theme]);
 
   const opacity = theme === "light" ? 1 : 0.1;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-0 h-[100svh] w-screen overflow-hidden">
       <div
         className="absolute inset-0"
         style={{

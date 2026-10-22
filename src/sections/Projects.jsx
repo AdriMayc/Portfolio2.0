@@ -109,11 +109,34 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   useEffect(() => {
     if (!isPanelOpen) return undefined;
 
-    const previousOverflow = document.body.style.overflow;
+    const scrollY = window.scrollY;
+    const rootStyle = document.documentElement.style;
+    const bodyStyle = document.body.style;
+    const previousRootOverflow = rootStyle.overflow;
+    const previousRootOverscrollBehavior = rootStyle.overscrollBehavior;
+    const previousBodyPosition = bodyStyle.position;
+    const previousBodyTop = bodyStyle.top;
+    const previousBodyWidth = bodyStyle.width;
+    const previousBodyOverflow = bodyStyle.overflow;
+    const previousBodyOverscrollBehavior = bodyStyle.overscrollBehavior;
+
+    rootStyle.overflow = "hidden";
+    rootStyle.overscrollBehavior = "none";
+    bodyStyle.position = "fixed";
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.width = "100%";
     document.body.style.overflow = "hidden";
+    bodyStyle.overscrollBehavior = "none";
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      rootStyle.overflow = previousRootOverflow;
+      rootStyle.overscrollBehavior = previousRootOverscrollBehavior;
+      bodyStyle.position = previousBodyPosition;
+      bodyStyle.top = previousBodyTop;
+      bodyStyle.width = previousBodyWidth;
+      bodyStyle.overflow = previousBodyOverflow;
+      bodyStyle.overscrollBehavior = previousBodyOverscrollBehavior;
+      window.scrollTo(0, scrollY);
     };
   }, [isPanelOpen]);
 
@@ -126,7 +149,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   };
 
   return (
-    <div className={`relative font-sans w-full min-h-screen overflow-hidden transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
+    <div className={`flex min-h-[100dvh] flex-col font-sans overflow-x-clip transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
       <RotatedGridBackground theme={theme} />
       <div className="relative z-20 w-full">
         <div className="max-w-6xl mx-auto px-8 pt-16 md:py-16">
@@ -138,7 +161,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
           <div className={`absolute -bottom-24 -right-16 w-96 h-96 border-[12px] transition-colors ${theme === 'light' ? 'border-gray-200/90' : 'border-gray-700/50'}`}></div>
       </div>
 
-      <div className="relative w-full flex justify-center pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative flex w-full flex-1 justify-center pb-16 px-4 sm:px-6 lg:px-8">
         <main className="relative z-10 w-full max-w-5xl">
             <Reveal className="mb-12 md:mb-20">
               <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
@@ -180,7 +203,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
       <NextPageLink currentPath="/projects" language={language} theme={theme} />
       <Footer theme={theme} />
 
-      <div className={`fixed inset-0 z-50 transition-all duration-500 ease-in-out ${isPanelOpen ? '' : 'pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-50 overscroll-none transition-all duration-500 ease-in-out ${isPanelOpen ? '' : 'pointer-events-none'}`}>
         <div
           className={`fixed inset-0 bg-black/30 transition-opacity duration-500 ease-in-out ${isPanelOpen ? 'opacity-100' : 'opacity-0'}`}
           onClick={handleBackClick}
@@ -195,7 +218,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
                        : 'bg-gray-900/80 backdrop-blur-md border-l border-gray-700/30'}
                      ${isPanelOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
-          <div className="relative h-full w-full flex flex-col">
+          <div className="relative flex h-full min-h-0 w-full flex-col">
             <button 
                 onClick={handleBackClick} 
                 className={`absolute top-6 right-6 z-20 transition-colors cursor-pointer
@@ -206,7 +229,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
                 <XMarkIcon className="w-8 h-8" />
             </button>
 
-            <div className="overflow-y-auto p-8 md:p-12 pb-24 mb-10">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-8 pb-24 md:p-12">
               {selectedProject && (
                   <ProjectDetail 
                       project={{
