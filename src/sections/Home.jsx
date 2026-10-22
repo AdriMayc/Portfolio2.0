@@ -3,8 +3,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import NextPageLink from "../components/NextPageLink";
 import RotatedGridBackground from "../components/Grid";
-import { ArrowRightIcon, SocialIcon } from "../components/icons";
+import { SocialIcon } from "../components/icons";
+import Reveal from "../components/Reveal";
 
 const socialIcons = {
   linkedin: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
@@ -86,7 +88,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
 
         {/* Navbar - agora posicionada igual ao About */}
         <div className="absolute top-0 left-0 w-full">
-          <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 py-16 ">
+          <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 pt-16 ">
             <Navbar
               theme={theme}
               toggleTheme={toggleTheme}
@@ -99,17 +101,22 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
         </div>
 
         {/* Main content - centralizado igual ao About */}
-        <main className="relative z-10 w-full max-w-5xl mt-32">
-          <div className={`flex items-center gap-3 mb-7 font-mono text-[0.8rem] tracking-[0.12em] opacity-70 ${themeClasses.textSubtle}`}>
+        <main className="relative z-10 w-full max-w-5xl">
+          <Reveal className={`flex items-center gap-3 mb-7 font-mono text-[0.8rem] tracking-[0.12em] opacity-70 ${themeClasses.textSubtle}`}>
             <span className="w-10 h-px shrink-0 bg-current" aria-hidden="true"></span>
             {currentContent.eyebrow}
-          </div>
-          <h1 className="text-4xl md:text-5xl font-light tracking-widest uppercase mb-8">
-            {currentContent.title}
-          </h1>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1 className="text-4xl font-light uppercase tracking-widest md:text-5xl">
+              {currentContent.title}
+            </h1>
+          </Reveal>
           <div className={`max-w-5xl space-y-6 leading-relaxed font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
-            <p>{currentContent.p1}</p>
-            <p>
+            <Reveal delay={700}>
+              <p>{currentContent.p1}</p>
+            </Reveal>
+            <Reveal delay={800}>
+              <p>
               {currentContent.p2_1}{" "}
               <Link
               to="/projects"
@@ -126,10 +133,11 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
                 {currentContent.p2_contact}
                 </strong>
               </Link>
-            </p>
+              </p>
+            </Reveal>
           </div>
 
-          <div className="mt-7 text">
+          <Reveal delay={900} className="mt-7 text">
             <span className={`block mb-3 text-[0.8rem] tracking-[0.12em] uppercase ${themeClasses.textSubtle}`}>
               {currentContent.recentAchievements}
             </span>
@@ -167,21 +175,14 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
                 </span>
               </Link>
             </div>
-          </div>
+          </Reveal>
 
-          <Link
-            to="/about"
-            className={`inline-flex items-center mt-12 transition-colors ${themeClasses.text} ${themeClasses.textHoverBlack}`}
-          >
-            {currentContent.cta}
-            <ArrowRightIcon />
-          </Link>
-
-          <div className="flex items-center space-x-6 mt-10 ml-2">
+          <Reveal delay={1000} className="mt-10 ml-2 flex items-center space-x-6">
             <a
               href="https://www.linkedin.com/in/adriano-mayco/"
               target="_blank"
               rel="noopener noreferrer"
+              className="group transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1"
             >
               <SocialIcon d={socialIcons.linkedin} theme={theme} />
             </a>
@@ -190,10 +191,11 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
               href="https://github.com/AdriMayc"
               target="_blank"
               rel="noopener noreferrer"
+              className="group transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1"
             >
               <SocialIcon d={socialIcons.github} theme={theme} />
             </a>
-          </div>
+          </Reveal>
         </main>
       </div>
 
@@ -223,6 +225,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
           ))}
         </div>
       </div>
+      <NextPageLink currentPath="/" language={language} theme={theme} />
       <Footer theme={theme} />
     </div>
   );

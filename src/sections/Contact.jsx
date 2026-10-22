@@ -5,7 +5,9 @@ import RotatedGridBackground from "../components/Grid";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { ArrowRightIcon, SocialIcon } from "../components/icons";
+import NextPageLink from "../components/NextPageLink";
+import { SocialIcon } from "../components/icons";
+import Reveal from "../components/Reveal";
 
 const socialIcons = {
     linkedin: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
@@ -61,11 +63,11 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
             <div className={`absolute top-[60%] -right-24 w-60 h-60 rounded-full transition-colors ${themeClasses.shapeBg}`}></div>
 
             {/* Content */}
-            <div className="relative flex w-full flex-1 justify-center px-4 pt-32 sm:px-6 lg:px-8">
+            <div className="relative flex w-full flex-1 justify-center px-4 pb-16 pt-10 sm:px-6 md:pt-32 lg:px-8">
 
                 {/* Navbar */}
-                <div className="absolute top-0 left-0 w-full ">
-                    <div className="relative z-20 w-full max-w-6xl mx-auto px-8 pt-16 md:py-16">
+                <div className="absolute top-0 left-0 w-full">
+                    <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 pt-16">
                         <Navbar
                             theme={theme}
                             toggleTheme={toggleTheme}
@@ -78,7 +80,8 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                 </div>
 
                 {/* Main content */}
-                <main className="relative z-10 w-full max-w-5xl mt-32">
+                <Reveal className="relative z-10 w-full max-w-5xl">
+                <main>
                     <h1 className="text-5xl md:text-6xl font-light tracking-widest uppercase mb-8">
                         {currentContent.title}
                     </h1>
@@ -92,19 +95,12 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                         </a>
                     </p>
 
-                    <Link
-                        to="/"
-                        className={`inline-flex items-center ml-2 mt-10 transition-colors ${themeClasses.text} ${themeClasses.textHoverBlack}`}
-                    >
-                        {currentContent.go_back_home}
-                        <ArrowRightIcon />
-                    </Link>
-
                     <div className="flex items-center space-x-6 mt-10 ml-2">
                         <a
                             href="https://www.linkedin.com/in/adriano-mayco/"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="group rounded-full p-1 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_10px_24px_-12px_#4f46e5]"
                         >
                             <SocialIcon d={socialIcons.linkedin} theme={theme} />
                         </a>
@@ -113,13 +109,16 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                             href="https://github.com/AdriMayc"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="group rounded-full p-1 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_10px_24px_-12px_#4f46e5]"
                         >
                             <SocialIcon d={socialIcons.github} theme={theme} />
                         </a>
                     </div>
 
                 </main>
+                </Reveal>
             </div>
+            <NextPageLink currentPath="/contact" language={language} theme={theme} />
             <Footer theme={theme} />
         </div>
     );

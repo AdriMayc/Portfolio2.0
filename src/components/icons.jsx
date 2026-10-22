@@ -19,9 +19,9 @@ export const AsteriskIcon = ({ theme }) => (
   </svg>
 );
 
-export const ArrowRightIcon = () => (
+export const ArrowRightIcon = ({ className = "w-6 h-6 ml-2" }) => (
   <svg
-    className="w-6 h-6 ml-2"
+    className={className}
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -58,17 +58,17 @@ export const SunIcon = () => (
 );
 
 export const SocialIcon = ({ d, theme }) => (
-  <a
-    className={`transition-colors cursor-pointer${
-      theme === "light"
-        ? "text-gray-700 hover:text-gray-900"
-        : "text-gray-300 hover:text-white"
-    }`}
-  >
-    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={`h-6 w-6 transition-colors ${
+        theme === "light"
+          ? "text-gray-700 group-hover:text-gray-900"
+          : "text-gray-300 group-hover:text-white"
+      }`}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d={d} />
     </svg>
-  </a>
 );
 
 

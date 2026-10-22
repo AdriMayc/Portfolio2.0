@@ -6,8 +6,6 @@ const RotatedGridBackground = ({ theme }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
-    const container = canvas.parentElement;
-
     const context = canvas.getContext("2d");
     if (!context) return undefined;
 
@@ -58,8 +56,8 @@ const RotatedGridBackground = ({ theme }) => {
 
     const resize = () => {
       deviceScale = Math.min(window.devicePixelRatio || 1, 2);
-      width = container?.clientWidth || window.innerWidth;
-      height = container?.clientHeight || window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
       canvas.width = width * deviceScale;
       canvas.height = height * deviceScale;
       particles = Array.from({ length: width < 600 ? 5 : 9 }, createParticle);
@@ -225,8 +223,6 @@ const RotatedGridBackground = ({ theme }) => {
     resize();
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("pointerleave", handlePointerLeave);
-    const resizeObserver = container ? new ResizeObserver(resize) : null;
-    resizeObserver?.observe(container);
     window.addEventListener("resize", resize);
     if (!reducedMotion) animationFrame = requestAnimationFrame(draw);
 
@@ -235,14 +231,13 @@ const RotatedGridBackground = ({ theme }) => {
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("pointerleave", handlePointerLeave);
       window.removeEventListener("resize", resize);
-      resizeObserver?.disconnect();
     };
   }, [theme]);
 
   const opacity = theme === "light" ? 1 : 0.1;
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       <div
         className="absolute inset-0"
         style={{
