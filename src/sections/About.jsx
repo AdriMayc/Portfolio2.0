@@ -330,7 +330,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
 
             <div className="relative w-full flex justify-center pb-16 px-4 sm:px-6 lg:px-8">
                 <main className="relative z-10 w-full max-w-6xl">
-                    <Reveal className="mb-20">
+                    <Reveal className="md:mb-20 mb-10">
                         <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
                             <span>01</span>
                             <span className="section-eyebrow-rule h-px bg-current" />
@@ -339,7 +339,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             {currentContent.about_title}
                         </h1>
                     </Reveal>
-                    <Reveal className={`mb-20 max-w-4xl text-[clamp(1.6rem,3.6vw,2.9rem)] font-extralight leading-[1.3] tracking-[0.01em] ${themeClasses.textStrong}`}>
+                    <Reveal className={`mb-10 md:mb-20 max-w-4xl text-[clamp(1.6rem,3.6vw,2.9rem)] font-extralight leading-[1.3] tracking-[0.01em] ${themeClasses.textStrong}`}>
                         {currentContent.statement}
                     </Reveal>
 
