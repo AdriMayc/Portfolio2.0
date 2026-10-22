@@ -10,6 +10,7 @@ const RotatedGridBackground = ({ theme }) => {
     if (!context) return undefined;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const supportsPointerInteraction = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const cellSize = 48;
     const scale = 2.2;
     const rotation = -Math.PI / 4;
@@ -66,9 +67,11 @@ const RotatedGridBackground = ({ theme }) => {
     const draw = (now) => {
       const delta = Math.min((now - previousTime) / 1000 || 0, 0.05);
       previousTime = now;
-      mouse.active += ((mouse.x > -900 ? 1 : 0) - mouse.active) * 0.08;
-      mouse.smoothX += (mouse.x - mouse.smoothX) * 0.14;
-      mouse.smoothY += (mouse.y - mouse.smoothY) * 0.14;
+      if (supportsPointerInteraction) {
+        mouse.active += ((mouse.x > -900 ? 1 : 0) - mouse.active) * 0.08;
+        mouse.smoothX += (mouse.x - mouse.smoothX) * 0.14;
+        mouse.smoothY += (mouse.y - mouse.smoothY) * 0.14;
+      }
 
       context.setTransform(deviceScale, 0, 0, deviceScale, 0, 0);
       context.clearRect(0, 0, width, height);
@@ -221,15 +224,19 @@ const RotatedGridBackground = ({ theme }) => {
       mouse.y = -999;
     };
     resize();
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    window.addEventListener("pointerleave", handlePointerLeave);
+    if (supportsPointerInteraction) {
+      window.addEventListener("pointermove", handlePointerMove, { passive: true });
+      window.addEventListener("pointerleave", handlePointerLeave);
+    }
     window.addEventListener("resize", resize);
     if (!reducedMotion) animationFrame = requestAnimationFrame(draw);
 
     return () => {
       cancelAnimationFrame(animationFrame);
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerleave", handlePointerLeave);
+      if (supportsPointerInteraction) {
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerleave", handlePointerLeave);
+      }
       window.removeEventListener("resize", resize);
     };
   }, [theme]);

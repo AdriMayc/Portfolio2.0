@@ -1,5 +1,5 @@
 // src/sections/Projects.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NextPageLink from "../components/NextPageLink";
@@ -105,6 +105,17 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   const handleBackClick = () => setSelectedProject(null);
 
   const isPanelOpen = !!selectedProject;
+
+  useEffect(() => {
+    if (!isPanelOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isPanelOpen]);
 
   // Função para obter o conteúdo do projeto no idioma correto
   const getProjectContent = (project, field) => {

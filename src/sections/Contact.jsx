@@ -77,7 +77,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
             <div className={`absolute top-[60%] -right-24 w-60 h-60 rounded-full transition-colors ${themeClasses.shapeBg}`}></div>
 
             {/* Content */}
-            <div className="relative flex w-full flex-1 justify-center px-4 pb-16 pt-10 sm:px-6 md:pt-32 lg:px-8">
+            <div className="relative flex w-full flex-1 justify-center px-4 pb-16 pt-32 sm:px-6 md:pt-32 lg:px-8">
 
                 {/* Navbar */}
                 <div className="absolute top-0 left-0 w-full">

@@ -28,7 +28,7 @@ const content = {
         credential: "Visualizar credencial",
         verify_credential: "Verificar Credencial",
         issued: "Amazon Web Services (AWS) • Emitido em Out 2026",
-        completed_label: "Finalizado",
+        completed_label: "Finalizado 2026",
         internship_date: "23 de novembro de 2026",
         internship_before: "Início previsto para",
         internship_today: "Comecei hoje",
@@ -52,7 +52,7 @@ const content = {
         credential: "View credential",
         verify_credential: "Verify Credential",
         issued: "Amazon Web Services (AWS) • Issued Oct 2026",
-        completed_label: "Completed",
+        completed_label: "Completed 2026",
         internship_date: "November 23, 2026",
         internship_before: "Starting on",
         internship_today: "I started today",
@@ -203,7 +203,7 @@ const SkillsSection = ({ topic, skills, theme }) => (
     </div>
 );
 
-const AchievementCard = ({ type, title, subtitle, credential, theme, index, image, action }) => {
+const AchievementCard = ({ type, title, subtitle, status, credential, theme, index, image, action }) => {
     const isLight = theme === "light";
     const hasCredential = Boolean(credential);
 
@@ -216,7 +216,7 @@ const AchievementCard = ({ type, title, subtitle, credential, theme, index, imag
             }`}
             style={{ transitionDelay: `${index * 80}ms` }}
         >
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center">
+            <div className="flex h-20 w-20 shrink-0 self-center items-center justify-center sm:self-auto">
                 <img
                     src={image}
                     alt={hasCredential ? "Selo AWS Cloud Practitioner" : "Logo AIR/R Fellowship"}
@@ -228,7 +228,15 @@ const AchievementCard = ({ type, title, subtitle, credential, theme, index, imag
                     <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-700">{type}</span>
                 </div>
                 <h3 className={`text-xl font-bold leading-tight ${isLight ? "text-gray-900" : "text-gray-100"}`}>{title}</h3>
-                <p className={`text-sm ${isLight ? "text-gray-500" : "text-gray-400"}`}>{subtitle}</p>
+                <p className={`flex flex-wrap items-center gap-2 text-sm ${isLight ? "text-gray-500" : "text-gray-400"}`}>
+                    <span>{subtitle}</span>
+                    {status && (
+                        <>
+                            <span className="h-1 w-1 rounded-full bg-current" aria-hidden="true" />
+                            <span>{status}</span>
+                        </>
+                    )}
+                </p>
             </div>
             <div className="w-full shrink-0 sm:w-auto">{action}</div>
         </article>
@@ -371,6 +379,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                                 type={currentContent.bootcamp}
                                 title="AIR/R Fellowship — AWS AI FDE Foundations"
                                 subtitle="Compass UOL + AWS"
+                                status={currentContent.completed_label}
                                 theme={theme}
                                 image={airLogo}
                             />

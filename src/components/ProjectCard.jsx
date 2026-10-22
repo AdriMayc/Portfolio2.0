@@ -12,7 +12,7 @@ export default function ProjectCard({
 
   const handlePointerMove = (event) => {
     const card = cardRef.current;
-    if (!card) return;
+    if (!card || event.pointerType !== "mouse") return;
 
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
@@ -47,7 +47,7 @@ export default function ProjectCard({
     >
       <div
         ref={cardRef}
-        className="relative h-96 overflow-hidden rounded-2xl bg-black text-left shadow-[0_14px_34px_-16px_rgba(0,0,0,0.45)] [transform:rotateX(0deg)_rotateY(0deg)] [transform-style:preserve-3d] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:shadow-[0_34px_60px_-24px_rgba(0,0,0,0.6)]"
+        className="relative h-96 overflow-hidden rounded-2xl bg-black text-left shadow-[0_14px_34px_-16px_rgba(0,0,0,0.45)] [transform:rotateX(0deg)_rotateY(0deg)] [transform-style:preserve-3d] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:group-hover:shadow-[0_34px_60px_-24px_rgba(0,0,0,0.6)]"
       >
         <img
           src={imageSrc}
@@ -58,7 +58,7 @@ export default function ProjectCard({
         <div
           className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent"
         >
-          <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white/90 text-gray-900 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100">
+          <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white/90 text-gray-900 opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:opacity-0 md:group-hover:scale-100 md:group-hover:opacity-100">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
             </svg>
@@ -66,7 +66,7 @@ export default function ProjectCard({
 
           <div className="w-full p-6 text-white">
             <h3 className="mb-2 text-2xl font-bold">{title}</h3>
-            <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grid-rows-[1fr]">
+            <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
               <div className="overflow-hidden">
                 <p className="mb-4 text-sm text-gray-300">{description}</p>
                 <div className="flex flex-wrap gap-2">
