@@ -325,7 +325,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                     <Reveal className="mb-20">
                         <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
                             <span>01</span>
-                            <span className="about-rule h-px bg-current" />
+                            <span className="section-eyebrow-rule h-px bg-current" />
                         </div>
                         <h1 className={`text-[clamp(2.4rem,7vw,5.5rem)] font-extralight uppercase leading-none tracking-[0.12em] ${themeClasses.textStrong}`}>
                             {currentContent.about_title}

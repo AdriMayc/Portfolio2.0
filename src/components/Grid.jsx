@@ -49,7 +49,7 @@ const RotatedGridBackground = ({ theme }) => {
         dx: direction[0],
         dy: direction[1],
         progress: Math.random(),
-        speed: 0.5 + Math.random() * 0.45,
+        speed: 0.25 + Math.random() * 0.2,
         history: [],
       };
     };

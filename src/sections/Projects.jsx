@@ -94,6 +94,8 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
     bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black",
     text: theme === "light" ? "text-gray-800" : "text-gray-200",
     textStrong: theme === 'light' ? 'text-gray-800' : 'text-gray-100',
+    textSubtle: theme === 'light' ? 'text-gray-600' : 'text-gray-300',
+    textHover: theme === 'light' ? 'hover:text-gray-900' : 'hover:text-white',
   };
 
   const column1Projects = projectData.filter((_, index) => index % 2 === 0);
@@ -126,18 +128,17 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
       </div>
 
       <div className="relative w-full flex justify-center pb-16 px-4 sm:px-6 lg:px-8">
-        <Reveal className="relative z-10 w-full max-w-5xl">
-        <main>
-            <div className="mb-12 md:mb-20">
-              <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${theme === "light" ? "text-gray-500" : "text-gray-400"}`}>
+        <main className="relative z-10 w-full max-w-5xl">
+            <Reveal className="mb-12 md:mb-20">
+              <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
                 02
-                <span className="projects-eyebrow-rule h-px w-10 bg-current" aria-hidden="true"></span>
+                <span className="section-eyebrow-rule h-px bg-current" aria-hidden="true"></span>
               </div>
               <h1 className={`text-4xl font-light uppercase leading-tight tracking-[0.12em] md:text-6xl ${themeClasses.textStrong}`}>
                 {currentContent.title}
               </h1>
-            </div>
-            <div className="w-full grid grid-cols-1 gap-8 md:grid-cols-2">
+            </Reveal>
+            <Reveal delay={150} className="w-full grid grid-cols-1 gap-8 md:grid-cols-2">
               <div className="flex flex-col gap-8">
                 {column1Projects.map((project) => (
                   <ProjectCard 
@@ -162,11 +163,8 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
                   />
                 ))}
               </div>
-            </div>
-
-            
+            </Reveal>
         </main>
-        </Reveal>
       </div>
       <NextPageLink currentPath="/projects" language={language} theme={theme} />
       <Footer theme={theme} />

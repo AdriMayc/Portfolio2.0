@@ -103,7 +103,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
         {/* Main content - centralizado igual ao About */}
         <main className="relative z-10 w-full max-w-5xl">
           <Reveal className={`flex items-center gap-3 mb-7 font-mono text-[0.8rem] tracking-[0.12em] opacity-70 ${themeClasses.textSubtle}`}>
-            <span className="w-10 h-px shrink-0 bg-current" aria-hidden="true"></span>
+            <span className="section-eyebrow-rule h-px shrink-0 bg-current" aria-hidden="true"></span>
             {currentContent.eyebrow}
           </Reveal>
           <Reveal delay={100}>
@@ -112,10 +112,10 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             </h1>
           </Reveal>
           <div className={`max-w-5xl space-y-6 leading-relaxed font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
-            <Reveal delay={700}>
+            <Reveal delay={250}>
               <p>{currentContent.p1}</p>
             </Reveal>
-            <Reveal delay={800}>
+            <Reveal delay={350}>
               <p>
               {currentContent.p2_1}{" "}
               <Link
@@ -137,7 +137,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             </Reveal>
           </div>
 
-          <Reveal delay={900} className="mt-7 text">
+          <Reveal delay={450} className="mt-7 text">
             <span className={`block mb-3 text-[0.8rem] tracking-[0.12em] uppercase ${themeClasses.textSubtle}`}>
               {currentContent.recentAchievements}
             </span>
@@ -177,7 +177,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             </div>
           </Reveal>
 
-          <Reveal delay={1000} className="mt-10 ml-2 flex items-center space-x-6">
+          <Reveal delay={550} className="mt-10 ml-2 flex items-center space-x-6">
             <a
               href="https://www.linkedin.com/in/adriano-mayco/"
               target="_blank"

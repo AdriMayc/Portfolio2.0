@@ -51,30 +51,12 @@ html {
   transform: none;
 }
 
-.about-rule {
+.section-eyebrow-rule {
   width: 0;
   transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
 }
 
-.reveal-visible .about-rule {
-  width: 4rem;
-}
-
-.projects-eyebrow-rule {
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
-}
-
-.reveal-visible .projects-eyebrow-rule {
-  width: 2.5rem;
-}
-
-.contact-eyebrow-rule {
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
-}
-
-.reveal-visible .contact-eyebrow-rule {
+.reveal-visible .section-eyebrow-rule {
   width: 2.5rem;
 }
 
@@ -116,20 +98,8 @@ html {
     transition: none;
   }
 
-  .about-rule,
-  .reveal-visible .about-rule {
-    width: 4rem;
-    transition: none;
-  }
-
-  .projects-eyebrow-rule,
-  .reveal-visible .projects-eyebrow-rule {
-    width: 2.5rem;
-    transition: none;
-  }
-
-  .contact-eyebrow-rule,
-  .reveal-visible .contact-eyebrow-rule {
+  .section-eyebrow-rule,
+  .reveal-visible .section-eyebrow-rule {
     width: 2.5rem;
     transition: none;
   }

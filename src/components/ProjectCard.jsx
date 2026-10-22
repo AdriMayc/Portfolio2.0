@@ -56,7 +56,7 @@ export default function ProjectCard({
         />
 
         <div
-          className="absolute inset-0 flex items-end bg-gradient-to-t from-black/95 to-transparent"
+          className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent"
         >
           <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white/90 text-gray-900 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-100 group-hover:opacity-100">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">

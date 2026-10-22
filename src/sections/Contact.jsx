@@ -99,7 +99,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                     <Reveal className="mb-16">
                         <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
                             03
-                            <span className="contact-eyebrow-rule h-px w-10 bg-current" aria-hidden="true"></span>
+                            <span className="section-eyebrow-rule h-px bg-current" aria-hidden="true"></span>
                         </div>
                         <h1 className={`overflow-hidden text-5xl font-extralight uppercase leading-none tracking-[0.12em] md:text-7xl ${themeClasses.textStrong}`}>
                             <span className="contact-title-line block">
