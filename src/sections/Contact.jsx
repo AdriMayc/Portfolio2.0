@@ -1,6 +1,5 @@
 // src/sections/Contact.jsx
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import RotatedGridBackground from "../components/Grid";
 
 import Navbar from "../components/Navbar";
@@ -22,7 +21,9 @@ const content = {
         title: "Contato",
         intro: "Entre em contato diretamente em",
         email: "amayco@outlook.com.br",
-        go_back_home: "Voltar para Home",
+        copy: "Copiar e-mail",
+        copied: "Copiado ✓",
+        copyError: "Não foi possível copiar",
     },
     en: {
         nav_about: "About",
@@ -30,17 +31,30 @@ const content = {
         nav_contact: "Contact",
         title: "Contact",
         intro: "Get in touch directly at",
-        email: "amaico@outlook.com.br",
-        go_back_home: "Go Back Home",
+        email: "amayco@outlook.com.br",
+        copy: "Copy email",
+        copied: "Copied ✓",
+        copyError: "Unable to copy",
     },
 };
 
 export default function Contact({ theme, toggleTheme, language, toggleLanguage }) {
     const currentContent = content[language];
+    const [copyState, setCopyState] = useState("idle");
 
     useEffect(() => {
         document.title = "Contact | Adriano Mayco";
     }, []);
+
+    const handleCopyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(currentContent.email);
+            setCopyState("copied");
+            window.setTimeout(() => setCopyState("idle"), 1800);
+        } catch {
+            setCopyState("error");
+        }
+    };
 
     const themeClasses = {
         bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black", text: theme === "light" ? "text-gray-800" : "text-gray-200",
@@ -82,39 +96,73 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                 {/* Main content */}
                 <Reveal className="relative z-10 w-full max-w-5xl">
                 <main>
-                    <h1 className="text-5xl md:text-6xl font-light tracking-widest uppercase mb-8">
-                        {currentContent.title}
-                    </h1>
-                    <p className={`max-w-xl text-lg mb-8 ${themeClasses.textSubtle}`}>
-                        {currentContent.intro}{" "}
+                    <Reveal className="mb-16">
+                        <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
+                            03
+                            <span className="contact-eyebrow-rule h-px w-10 bg-current" aria-hidden="true"></span>
+                        </div>
+                        <h1 className={`overflow-hidden text-5xl font-extralight uppercase leading-none tracking-[0.12em] md:text-7xl ${themeClasses.textStrong}`}>
+                            <span className="contact-title-line block">
+                                {currentContent.title}
+                            </span>
+                        </h1>
+                    </Reveal>
+
+                    <Reveal delay={100} className={`mb-6 text-[1.1rem] font-light ${themeClasses.textSubtle}`}>
+                        {currentContent.intro}
+                    </Reveal>
+
+                    <Reveal delay={200}>
                         <a
                             href={`mailto:${currentContent.email}`}
-                            className={`font-semibold ${themeClasses.textStrong} ${themeClasses.textHoverBlack} transition-colors`}
+                            className={`contact-email block w-fit max-w-full break-all text-2xl font-extralight leading-tight tracking-[0.02em] md:text-6xl ${themeClasses.textStrong}`}
                         >
                             {currentContent.email}
                         </a>
-                    </p>
+                    </Reveal>
 
-                    <div className="flex items-center space-x-6 mt-10 ml-2">
-                        <a
-                            href="https://www.linkedin.com/in/adriano-mayco/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group rounded-full p-1 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_10px_24px_-12px_#4f46e5]"
+                    <Reveal delay={300} className="mt-6 flex flex-wrap items-center gap-6">
+                        <button
+                            type="button"
+                            onClick={handleCopyEmail}
+                            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-all duration-300 ${
+                                copyState === "copied"
+                                    ? "border-indigo-600 bg-indigo-600 text-white"
+                                    : copyState === "error"
+                                      ? "border-red-500 text-red-500"
+                                      : theme === "light"
+                                        ? "border-gray-300 text-gray-600 hover:border-indigo-600 hover:text-gray-900"
+                                        : "border-gray-700 text-gray-300 hover:border-indigo-400 hover:text-white"
+                            }`}
                         >
-                            <SocialIcon d={socialIcons.linkedin} theme={theme} />
-                        </a>
+                            {copyState === "copied"
+                                ? currentContent.copied
+                                : copyState === "error"
+                                  ? currentContent.copyError
+                                  : `⧉ ${currentContent.copy}`}
+                        </button>
 
-                        <a
-                            href="https://github.com/AdriMayc"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group rounded-full p-1 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_10px_24px_-12px_#4f46e5]"
-                        >
-                            <SocialIcon d={socialIcons.github} theme={theme} />
-                        </a>
-                    </div>
-
+                        <div className="flex items-center gap-6">
+                            <a
+                                href="https://www.linkedin.com/in/adriano-mayco/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="LinkedIn"
+                                className={`transition-all duration-300 hover:-translate-y-1 ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                            >
+                                <SocialIcon d={socialIcons.linkedin} theme={theme} />
+                            </a>
+                            <a
+                                href="https://github.com/AdriMayc"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="GitHub"
+                                className={`transition-all duration-300 hover:-translate-y-1 ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                            >
+                                <SocialIcon d={socialIcons.github} theme={theme} />
+                            </a>
+                        </div>
+                    </Reveal>
                 </main>
                 </Reveal>
             </div>
