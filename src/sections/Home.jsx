@@ -107,7 +107,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
             {currentContent.eyebrow}
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="text-4xl font-light uppercase tracking-widest md:text-5xl">
+            <h1 className="text-4xl font-light uppercase tracking-widest md:text-5xl pb-6">
               {currentContent.title}
             </h1>
           </Reveal>
