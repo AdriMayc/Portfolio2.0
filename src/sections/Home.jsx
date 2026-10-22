@@ -12,6 +12,10 @@ const socialIcons = {
 
 const content = {
   pt: {
+    eyebrow: "Portfólio · 2026",
+    recentAchievements: "Conquistas recentes",
+    awsAchievement: "Certificação",
+    fellowshipAchievement: "Bootcamp / Estágio",
     nav_about: "Sobre",
     nav_projects: "Projetos",
     nav_contact: "Contato",
@@ -24,6 +28,10 @@ const content = {
     cta: "Ver Mais Sobre Mim",
   },
   en: {
+    eyebrow: "Portfolio · 2026",
+    recentAchievements: "Recent achievements",
+    awsAchievement: "Certification",
+    fellowshipAchievement: "Bootcamp / Internship",
     nav_about: "About",
     nav_projects: "Projects",
     nav_contact: "Contact",
@@ -86,6 +94,10 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
 
         {/* Main content - centralizado igual ao About */}
         <main className="relative z-10 w-full max-w-5xl mt-32">
+          <div className={`flex items-center gap-3 mb-7 font-mono text-[0.8rem] tracking-[0.12em] opacity-70 ${themeClasses.textSubtle}`}>
+            <span className="w-10 h-px shrink-0 bg-current" aria-hidden="true"></span>
+            {currentContent.eyebrow}
+          </div>
           <h1 className="text-4xl md:text-5xl font-light tracking-widest uppercase mb-8">
             {currentContent.title}
           </h1>
@@ -109,6 +121,46 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
                 </strong>
               </Link>
             </p>
+          </div>
+
+          <div className="mt-7 text">
+            <span className={`block mb-3 text-[0.8rem] tracking-[0.12em] uppercase ${themeClasses.textSubtle}`}>
+              {currentContent.recentAchievements}
+            </span>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/about"
+                className={`inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border text-[0.82rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
+                  theme === "light"
+                    ? "border-gray-300 bg-white/55 text-gray-600 hover:border-indigo-600 focus-visible:border-indigo-600 hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]"
+                    : "border-gray-700 bg-gray-800/50 text-gray-300 hover:border-indigo-400 focus-visible:border-indigo-400 hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]"
+                } hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]`}
+                aria-label={`${currentContent.awsAchievement}: AWS CCP`}
+              >
+                <span className={`grid place-items-center w-6 h-6 rounded-full text-[0.7rem] font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">☁</span>
+                <span>
+                  <strong className={themeClasses.textStrong}>AWS CCP</strong>
+                  {" · "}
+                  {currentContent.awsAchievement}
+                </span>
+              </Link>
+              <Link
+                to="/about"
+                className={`inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border text-[0.82rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
+                  theme === "light"
+                    ? "border-gray-300 bg-white/55 text-gray-600 hover:border-indigo-600 focus-visible:border-indigo-600 hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]"
+                    : "border-gray-700 bg-gray-800/50 text-gray-300 hover:border-indigo-400 focus-visible:border-indigo-400 hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]"
+                } hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]`}
+                aria-label={`${currentContent.fellowshipAchievement}: AIR/R Fellowship`}
+              >
+                <span className={`grid place-items-center w-6 h-6 rounded-full text-[0.7rem] font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">★</span>
+                <span>
+                  <strong className={themeClasses.textStrong}>AIR/R Fellowship</strong>
+                  {" · "}
+                  {currentContent.fellowshipAchievement}
+                </span>
+              </Link>
+            </div>
           </div>
 
           <Link
