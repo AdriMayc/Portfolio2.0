@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import RotatedGridBackground from "../components/Grid";
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { ArrowRightIcon, SocialIcon } from "../components/icons";
 
 const socialIcons = {
@@ -50,7 +51,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
     };
 
     return (
-        <div className={`relative font-sans w-full min-h-screen overflow-hidden transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
+        <div className={`relative flex min-h-screen w-full flex-col overflow-hidden font-sans transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
 
             <RotatedGridBackground theme={theme} />
 
@@ -60,7 +61,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
             <div className={`absolute top-[60%] -right-24 w-60 h-60 rounded-full transition-colors ${themeClasses.shapeBg}`}></div>
 
             {/* Content */}
-            <div className="relative w-full flex justify-center pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+            <div className="relative flex w-full flex-1 justify-center px-4 pt-32 sm:px-6 lg:px-8">
 
                 {/* Navbar */}
                 <div className="absolute top-0 left-0 w-full ">
@@ -119,6 +120,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
 
                 </main>
             </div>
+            <Footer theme={theme} />
         </div>
     );
 }

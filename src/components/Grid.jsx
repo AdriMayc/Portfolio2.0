@@ -204,7 +204,7 @@ const RotatedGridBackground = ({ theme }) => {
           context.lineTo(...particle.history[index]);
           context.stroke();
         }
-        context.fillStyle = `rgba(${color},${0.6 * effectOpacity})`;
+        context.fillStyle = `rgba(${color},${0.5 * effectOpacity})`;
         context.beginPath();
         context.arc(x, y, 1.5, 0, Math.PI * 2);
         context.fill();

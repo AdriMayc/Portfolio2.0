@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import RotatedGridBackground from "../components/Grid";
 import { PlusIcon, MinusIcon, LocationIcon, ArrowRightIcon, SocialIcon } from "../components/icons";
 
@@ -284,6 +285,7 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                     </div>
                 </main>
             </div>
+            <Footer theme={theme} />
         </div>
     );
 }

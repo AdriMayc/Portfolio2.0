@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import RotatedGridBackground from "../components/Grid";
 import ProjectCard from "../components/ProjectCard";
 import ProjectDetail from "../components/ProjectDetail";
@@ -189,6 +190,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
             
         </main>
       </div>
+      <Footer theme={theme} />
 
       <div className={`fixed inset-0 z-50 transition-all duration-500 ease-in-out ${isPanelOpen ? '' : 'pointer-events-none'}`}>
         <div

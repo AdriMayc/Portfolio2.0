@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import RotatedGridBackground from "../components/Grid";
 import { ArrowRightIcon, SocialIcon } from "../components/icons";
 
@@ -222,6 +223,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
           ))}
         </div>
       </div>
+      <Footer theme={theme} />
     </div>
   );
 }
