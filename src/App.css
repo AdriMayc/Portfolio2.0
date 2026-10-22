@@ -4,6 +4,12 @@
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
+@keyframes technologies-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .nav-underline-anim {
   position: relative;
 }
