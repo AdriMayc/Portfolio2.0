@@ -1,12 +1,13 @@
 // src/sections/About.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NextPageLink from "../components/NextPageLink";
 import RotatedGridBackground from "../components/Grid";
 import { PlusIcon, MinusIcon, LocationIcon } from "../components/icons";
 import Reveal from "../components/Reveal";
+import awsCCP from "../img/awsCCP.png";
+import airLogo from "../img/air-logo.jpg";
 
 
 // --- DADOS MULTILÍNGUE (centralizados para a página Sobre) ---
@@ -20,6 +21,20 @@ const content = {
         topic_skills: "TECNOLOGIAS",
         nav_projects: "Projetos",
         projects: "Ver Meus Projetos",
+        statement: "Evoluindo e aprendendo constantemente, em busca de sempre melhorar.",
+        recent_achievements: "Conquistas Recentes",
+        certificate: "Certificado",
+        bootcamp: "Bootcamp",
+        credential: "Visualizar credencial",
+        verify_credential: "Verificar Credencial",
+        issued: "Amazon Web Services (AWS) • Emitido em Out 2026",
+        completed_label: "Finalizado",
+        internship_date: "23 de novembro de 2026",
+        internship_before: "Início previsto para",
+        internship_today: "Comecei hoje",
+        internship_active: "Estagiando",
+        days_left: "dias restantes",
+        internship_title: "Próximo passo: estágio",
     },
     en: {
         nav_about: "About",
@@ -30,6 +45,20 @@ const content = {
         topic_skills: "TECHNOLOGIES",
         nav_projects: "Projects",
         projects: "View My Projects",
+        statement: "Evolving and constantly learning, always seeking to improve.",
+        recent_achievements: "Recent Achievements",
+        certificate: "Certified",
+        bootcamp: "Bootcamp",
+        credential: "View credential",
+        verify_credential: "Verify Credential",
+        issued: "Amazon Web Services (AWS) • Issued Oct 2026",
+        completed_label: "Completed",
+        internship_date: "November 23, 2026",
+        internship_before: "Starting on",
+        internship_today: "I started today",
+        internship_active: "Interning",
+        days_left: "days remaining",
+        internship_title: "Next step: internship",
     }
 };
 
@@ -144,28 +173,28 @@ const AccordionItem = ({ item, isOpen, onClick, theme, language }) => {
 };
 
 const TopicSection = ({ topic, children, theme }) => (
-    <div className="flex flex-col md:flex-row mb-16">
+    <div className="flex flex-col gap-8 md:flex-row mb-20">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:pr-8">
             <h2 className={`text-2xl font-light tracking-wider sticky top-24 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>{topic}</h2>
         </div>
-        <div className="w-full md:w-3/4 ">
-            <div className={`rounded-lg overflow-hidden border ${theme === 'light' ? 'border-gray-300' : 'border-gray-700'}`}>{children}</div>
+        <div className="w-full min-w-0 md:w-3/4">
+            <div className={`overflow-hidden rounded-lg border ${theme === 'light' ? 'border-gray-300 bg-white/20' : 'border-gray-700 bg-gray-900/20'}`}>{children}</div>
         </div>
     </div>
 );
 
 const SkillsSection = ({ topic, skills, theme }) => (
-    <div className="flex flex-col md:flex-row mb-16">
+    <div className="flex flex-col md:flex-row gap-8 mb-20">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:pr-8">
-            <h2 className={`text-2xl font-light tracking-wider sticky top-24 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>{topic}</h2>
+            <h2 className={`text-2xl font-light tracking-[0.1em] sticky top-24 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>{topic}</h2>
         </div>
-        <div className="w-full md:w-3/4 space-y-6">
+        <div className="w-full md:w-3/4 space-y-6 min-w-0">
             {Object.entries(skills).map(([category, list]) => (
                 <div key={category}>
                     <h3 className={`font-semibold mb-3 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>{category}</h3>
                     <div className="flex flex-wrap gap-3">
                         {list.map(skill => (
-                            <span key={skill} className={`px-4 py-2 rounded-md text-sm font-medium shadow-md ${theme === 'light' ? 'bg-gray-100 border border-gray-200 text-gray-700' : 'bg-gray-800 border border-gray-700 text-gray-300'}`}>{skill}</span>
+                            <span key={skill} className={`px-4 py-2 rounded-md text-sm font-medium shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg ${theme === 'light' ? 'bg-gray-100 border border-gray-200 text-gray-700 hover:border-indigo-500' : 'bg-gray-800 border border-gray-700 text-gray-300 hover:border-indigo-400'}`}>{skill}</span>
                         ))}
                     </div>
                 </div>
@@ -173,6 +202,77 @@ const SkillsSection = ({ topic, skills, theme }) => (
         </div>
     </div>
 );
+
+const AchievementCard = ({ type, title, subtitle, credential, theme, index, image, action }) => {
+    const isLight = theme === "light";
+    const hasCredential = Boolean(credential);
+
+    return (
+        <article
+            className={`relative flex w-full flex-col gap-4 rounded-lg border-b px-4 py-4 font-sans antialiased sm:flex-row sm:items-center sm:gap-5 ${
+                isLight
+                    ? "border-gray-200"
+                    : "border-gray-700"
+            }`}
+            style={{ transitionDelay: `${index * 80}ms` }}
+        >
+            <div className="flex h-20 w-20 shrink-0 items-center justify-center">
+                <img
+                    src={image}
+                    alt={hasCredential ? "Selo AWS Cloud Practitioner" : "Logo AIR/R Fellowship"}
+                    className={`${hasCredential ? "h-20 w-20" : "h-16 w-16"} rounded-md object-contain drop-shadow-sm`}
+                />
+            </div>
+            <div className="min-w-0 flex-1">
+                <div className="mb-1 inline-flex items-center rounded bg-indigo-100 px-2 py-0.5">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-700">{type}</span>
+                </div>
+                <h3 className={`text-xl font-bold leading-tight ${isLight ? "text-gray-900" : "text-gray-100"}`}>{title}</h3>
+                <p className={`text-sm ${isLight ? "text-gray-500" : "text-gray-400"}`}>{subtitle}</p>
+            </div>
+            <div className="w-full shrink-0 sm:w-auto">{action}</div>
+        </article>
+    );
+};
+
+const InternshipTimeline = ({ theme, content }) => {
+    const [today, setToday] = useState(() => new Date());
+    const startDate = new Date(2026, 10, 23);
+    const currentDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const daysUntilStart = Math.ceil((startDate - currentDay) / 86400000);
+    const isBeforeStart = daysUntilStart > 0;
+    const isStartDay = daysUntilStart === 0;
+    const isLight = theme === "light";
+
+    useEffect(() => {
+        const timer = window.setInterval(() => setToday(new Date()), 60000);
+        return () => window.clearInterval(timer);
+    }, []);
+
+    return (
+        <div className={`mt-auto rounded-md border px-3 py-2.5 ${isLight ? "border-indigo-100 bg-white/70" : "border-gray-700 bg-gray-900/50"}`}>
+            <div className="flex items-center gap-3">
+                <span className={`relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${isBeforeStart ? "border-2 border-dashed border-indigo-500" : "bg-indigo-600"}`}>
+                    {!isBeforeStart && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                </span>
+                <div className="min-w-0">
+                    <p className={`text-xs font-semibold ${isLight ? "text-gray-700" : "text-gray-200"}`}>
+                        {isBeforeStart
+                            ? `${content.internship_before} ${content.internship_date}`
+                            : isStartDay
+                                ? content.internship_today
+                                : content.internship_active}
+                    </p>
+                    {isBeforeStart && (
+                        <p className={`mt-0.5 text-[11px] ${isLight ? "text-gray-500" : "text-gray-400"}`}>
+                            {daysUntilStart} {content.days_left}
+                        </p>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 // --- PÁGINA SOBRE ---
 export default function About({ theme = 'light', language = 'pt', toggleTheme, toggleLanguage }) {
@@ -182,8 +282,8 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
 
 
     useEffect(() => {
-        document.title = "About | Adriano Mayco";
-    }, []);
+        document.title = `${language === "pt" ? "Sobre mim" : "About me"} | Adriano Mayco`;
+    }, [language]);
 
     const themeClasses = {
         bg: theme === "light" ? "bg-gradient-to-br from-gray-50 to-gray-200" : "bg-gradient-to-br from-gray-800 to-black",
@@ -221,12 +321,71 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
             </div>
 
             <div className="relative w-full flex justify-center pb-16 px-4 sm:px-6 lg:px-8">
-                <Reveal className="relative z-10 w-full max-w-5xl">
-                <main>
-                    <h1 className={`text-5xl md:text-6xl font-light tracking-widest uppercase mb-24 text-center ${themeClasses.textStrong}`}>
-                        {currentContent.about_title}
-                    </h1>
+                <main className="relative z-10 w-full max-w-6xl">
+                    <Reveal className="mb-20">
+                        <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+                            <span>01</span>
+                            <span className="about-rule h-px bg-current" />
+                        </div>
+                        <h1 className={`text-[clamp(2.4rem,7vw,5.5rem)] font-extralight uppercase leading-none tracking-[0.12em] ${themeClasses.textStrong}`}>
+                            {currentContent.about_title}
+                        </h1>
+                    </Reveal>
+                    <Reveal className={`mb-20 max-w-4xl text-[clamp(1.6rem,3.6vw,2.9rem)] font-extralight leading-[1.3] tracking-[0.01em] ${themeClasses.textStrong}`}>
+                        {currentContent.statement}
+                    </Reveal>
 
+                    <Reveal>
+                        <div className={`mb-6 text-xs uppercase tracking-[0.2em] ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+                            <h2 className="font-normal">
+                                {currentContent.recent_achievements}
+                            </h2>
+                        </div>
+                    </Reveal>
+                    <section className={`mb-20 ${theme === 'light' ? 'text-gray-800' : 'text-gray-200'}`}>
+                        <Reveal className="flex w-full">
+                            <AchievementCard
+                                index={0}
+                                type={currentContent.certificate}
+                                title="AWS Certified Cloud Practitioner"
+                                subtitle={currentContent.issued}
+                                credential={currentContent.credential}
+                                theme={theme}
+                                image={awsCCP}
+                                action={
+                                    <a
+                                        href="https://www.credly.com/badges/57fdc238-d7cc-4c27-8e89-f7aad0c892e5"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-indigo-500 px-5 py-2.5 text-sm font-medium text-indigo-600 transition-colors hover:bg-indigo-500 hover:text-white sm:w-auto"
+                                    >
+                                        {currentContent.verify_credential}
+                                        <span aria-hidden="true">↗</span>
+                                    </a>
+                                }
+                            />
+                        </Reveal>
+                        <Reveal className="flex w-full" delay={130}>
+                            <AchievementCard
+                                index={1}
+                                type={currentContent.bootcamp}
+                                title="AIR/R Fellowship — AWS AI FDE Foundations"
+                                subtitle="Compass UOL + AWS"
+                                theme={theme}
+                                image={airLogo}
+                            />
+                        </Reveal>
+                    </section>
+                    <Reveal className="mb-20">
+                        <section>
+                            <h2 className={`mb-6 text-xs font-medium uppercase tracking-[0.2em] ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+                                {currentContent.internship_title}
+                            </h2>
+                            <InternshipTimeline theme={theme} content={currentContent} />
+                        </section>
+                    </Reveal>
+
+                    <Reveal>
                     <TopicSection topic={currentContent.topic_experience} theme={theme}>
                         {experienceData.map((item, index) => (
                             <AccordionItem
@@ -239,7 +398,9 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             />
                         ))}
                     </TopicSection>
+                    </Reveal>
 
+                    <Reveal>
                     <TopicSection topic={currentContent.topic_education} theme={theme}>
                         {educationData.map((item, index) => (
                             <AccordionItem
@@ -252,11 +413,13 @@ export default function About({ theme = 'light', language = 'pt', toggleTheme, t
                             />
                         ))}
                     </TopicSection>
+                    </Reveal>
 
-                    <SkillsSection topic={currentContent.topic_skills} skills={skillsData} theme={theme} />
+                    <Reveal>
+                        <SkillsSection topic={currentContent.topic_skills} skills={skillsData} theme={theme} />
+                    </Reveal>
 
                 </main>
-                </Reveal>
             </div>
             <NextPageLink currentPath="/about" language={language} theme={theme} />
             <Footer theme={theme} />

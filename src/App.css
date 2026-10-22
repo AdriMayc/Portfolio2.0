@@ -51,10 +51,25 @@ html {
   transform: none;
 }
 
+.about-rule {
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+}
+
+.reveal-visible .about-rule {
+  width: 4rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .about-rule,
+  .reveal-visible .about-rule {
+    width: 4rem;
     transition: none;
   }
 }
