@@ -52,7 +52,9 @@ const Navbar = ({
   return (
     <header className="relative flex justify-between items-center mb-20 p-4 md:p-0 ">
       <Link to="/" aria-label="Home" onClick={handleLinkClick}>
-        <span className="home-link font-bold text-lg py-2">Home</span>
+        <span className="font-bold text-lg py-2 underline decoration-1 underline-offset-[5px] transition-[text-underline-offset] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:underline-offset-[9px] focus-visible:underline-offset-[9px]">
+          Home
+        </span>
       </Link>
 
       {/* Navegação Desktop */}
