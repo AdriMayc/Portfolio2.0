@@ -149,7 +149,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   };
 
   return (
-    <div className={`flex min-h-[100dvh] flex-col font-sans overflow-x-clip transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
+    <div className={`relative flex min-h-[100dvh] flex-col overflow-hidden font-sans transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
       <RotatedGridBackground theme={theme} />
       <div className="absolute top-0 left-0 w-full">
         <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 pt-16">
@@ -159,6 +159,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
       <div className="absolute inset-0 z-0 pointer-events-none">
           <div className={`absolute -top-20 -left-20 w-80 h-80 border-8 rounded-full transition-colors ${theme === 'light' ? 'border-gray-200/90' : 'border-gray-700/50'}`}></div>
           <div className={`absolute -bottom-24 -right-16 w-96 h-96 border-[12px] transition-colors ${theme === 'light' ? 'border-gray-200/90' : 'border-gray-700/50'}`}></div>
+          <div className={`absolute bottom-40 -right-24 w-60 h-60 rounded-full transition-colors ${theme === 'light' ? 'bg-gray-100/30' : 'bg-gray-800/30'}`}></div>
       </div>
 
       <div className="relative flex w-full flex-1 justify-center pt-32 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8">
