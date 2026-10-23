@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+html {
+  overflow-y: scroll;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer components {
+  .type-eyebrow {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .type-display {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: 0.1em;
+  }
+
+  .type-page-title {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: 0.1em;
+  }
+
+  .type-statement {
+    font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .type-statement-about {
+    font-size: clamp(1.25rem, 2.6vw, 2.15rem);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+  }
+
+  .type-section-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .type-card-title {
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
+
+  .type-body {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .type-meta {
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+
+  .type-caption {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .type-control {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+@keyframes technologies-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.nav-underline-anim {
+  position: relative;
+}
+
+.nav-underline-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 220ms ease;
+  will-change: transform;
+}
+
+.nav-underline-anim:hover::after,
+.nav-underline-anim:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.section-eyebrow-rule {
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+}
+
+.reveal-visible .section-eyebrow-rule {
+  width: 2.5rem;
+}
+
+.contact-title-line {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible .contact-title-line {
+  transform: translateY(0);
+}
+
+.contact-email {
+  position: relative;
+}
+
+.contact-email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.1em;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-email:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .section-eyebrow-rule,
+  .reveal-visible .section-eyebrow-rule {
+    width: 2.5rem;
+    transition: none;
+  }
+
+  .contact-email::after {
+    transition: none;
+  }
+}

@@ -65,13 +65,13 @@ export default function ProjectCard({
           </span>
 
           <div className="w-full p-6 text-white">
-            <h3 className="mb-2 text-2xl font-bold">{title}</h3>
+            <h3 className="type-card-title mb-2 font-bold">{title}</h3>
             <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr]">
               <div className="overflow-hidden">
-                <p className="mb-4 text-sm text-gray-300">{description}</p>
+                <p className="type-meta mb-4 text-gray-300">{description}</p>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
-                    <span key={tag} className="rounded-md bg-white/20 px-2 py-1 text-xs font-semibold text-white">
+                    <span key={tag} className="type-eyebrow rounded-md bg-white/20 px-2 py-1 font-semibold text-white">
                       {tag}
                     </span>
                   ))}

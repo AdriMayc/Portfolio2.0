@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = ({ theme }) => (
   <footer
-    className={`relative z-10 mt-4 border-t px-4 py-5 text-[0.82rem] sm:mt-8 sm:px-8 sm:py-8 ${
+    className={`type-meta relative z-10 mt-4 border-t px-4 py-5 sm:mt-8 sm:px-8 sm:py-8 ${
       theme === "light"
         ? "border-gray-300 text-gray-500"
         : "border-gray-700 text-gray-400"

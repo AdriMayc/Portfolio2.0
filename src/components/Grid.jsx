@@ -251,7 +251,7 @@ const RotatedGridBackground = ({ theme }) => {
   const opacity = theme === "light" ? 1 : 0.1;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 h-[100svh] w-screen overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-0 h-[100svh] w-full overflow-hidden">
       <div
         className="absolute inset-0"
         style={{

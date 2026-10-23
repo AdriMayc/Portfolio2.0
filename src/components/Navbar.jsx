@@ -52,7 +52,7 @@ const Navbar = ({
   return (
     <header className="relative flex justify-between items-center p-4 md:p-0 ">
       <Link to="/" aria-label="Home" onClick={handleLinkClick}>
-        <span className="font-bold text-lg py-2 underline decoration-1 underline-offset-[5px] transition-[text-underline-offset] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:underline-offset-[9px] focus-visible:underline-offset-[9px]">
+        <span className="type-control py-2 font-bold underline decoration-1 underline-offset-[5px] transition-[text-underline-offset] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:underline-offset-[9px] focus-visible:underline-offset-[9px]">
           Home
         </span>
       </Link>
@@ -79,7 +79,7 @@ const Navbar = ({
         </Link>
         <button
           onClick={toggleLanguage}
-          className={`transition-colors font-semibold text-sm cursor-pointer ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+          className={`type-control cursor-pointer font-semibold transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
         >
           {language === "pt" ? "EN" : "PT"}
         </button>
@@ -127,7 +127,7 @@ const Navbar = ({
               </button>
 
               <Link to="/" aria-label="Home" onClick={handleLinkClick}>
-                <span className="font-semibold underline text-lg">HOME</span>
+                <span className="type-control font-semibold underline">HOME</span>
               </Link>
 
               <button
@@ -144,28 +144,28 @@ const Navbar = ({
               <Link
                 to="/about"
                 onClick={handleLinkClick}
-                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim type-section-title transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_about.toUpperCase()}
               </Link>
               <Link
                 to="/projects"
                 onClick={handleLinkClick}
-                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim type-section-title transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_projects.toUpperCase()}
               </Link>
               <Link
                 to="/contact"
                 onClick={handleLinkClick}
-                className={`nav-underline-anim text-xl transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`nav-underline-anim type-section-title transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {currentContent.nav_contact.toUpperCase()}
               </Link>
 
               <button
                 onClick={() => { toggleLanguage(); handleLinkClick(); }}
-                className={`underline transition-colors font-bold text-lg cursor-pointer   ${themeClasses.textSubtle} ${themeClasses.textHover}`}
+                className={`type-control cursor-pointer font-bold underline transition-colors ${themeClasses.textSubtle} ${themeClasses.textHover}`}
               >
                 {language === "pt" ? "ENGLISH" : "PORTUGUÊS"}
               </button>

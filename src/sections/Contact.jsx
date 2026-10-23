@@ -97,25 +97,25 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                 <Reveal className="relative z-10 w-full max-w-5xl">
                 <main>
                     <Reveal className="mb-16">
-                        <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
+                        <div className={`type-eyebrow mb-4 flex items-center gap-3 font-mono ${themeClasses.textSubtle}`}>
                             03
                             <span className="section-eyebrow-rule h-px bg-current" aria-hidden="true"></span>
                         </div>
-                        <h1 className={`overflow-hidden text-5xl font-extralight uppercase leading-none tracking-[0.12em] md:text-7xl ${themeClasses.textStrong}`}>
+                        <h1 className={`type-page-title overflow-hidden font-extralight uppercase ${themeClasses.textStrong}`}>
                             <span className="contact-title-line block">
                                 {currentContent.title}
                             </span>
                         </h1>
                     </Reveal>
 
-                    <Reveal delay={100} className={`mb-6 text-[1.1rem] font-light ${themeClasses.textSubtle}`}>
+                    <Reveal delay={100} className={`type-body mb-6 font-light ${themeClasses.textSubtle}`}>
                         {currentContent.intro}
                     </Reveal>
 
                     <Reveal delay={200}>
                         <a
                             href={`mailto:${currentContent.email}`}
-                            className={`contact-email block w-fit max-w-full break-all text-2xl font-extralight leading-tight tracking-[0.02em] md:text-6xl ${themeClasses.textStrong}`}
+                            className={`contact-email block w-fit max-w-full break-all text-[clamp(1.75rem,5vw,4rem)] font-extralight leading-tight tracking-[0.02em] ${themeClasses.textStrong}`}
                         >
                             {currentContent.email}
                         </a>
@@ -125,7 +125,7 @@ export default function Contact({ theme, toggleTheme, language, toggleLanguage }
                         <button
                             type="button"
                             onClick={handleCopyEmail}
-                            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-all duration-300 ${
+                            className={`type-control inline-flex items-center gap-2 rounded-full border px-4 py-2 transition-all duration-300 ${
                                 copyState === "copied"
                                     ? "border-indigo-600 bg-indigo-600 text-white"
                                     : copyState === "error"

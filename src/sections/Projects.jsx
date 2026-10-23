@@ -151,8 +151,8 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
   return (
     <div className={`flex min-h-[100dvh] flex-col font-sans overflow-x-clip transition-colors duration-500 ${themeClasses.bg} ${themeClasses.text}`}>
       <RotatedGridBackground theme={theme} />
-      <div className="relative z-20 w-full">
-        <div className="max-w-6xl mx-auto px-8 pt-16 md:py-16">
+      <div className="absolute top-0 left-0 w-full">
+        <div className="relative z-20 w-full max-w-6xl mx-auto md:px-8 pt-16">
           <Navbar theme={theme} toggleTheme={toggleTheme} language={language} toggleLanguage={toggleLanguage} currentContent={currentContent} themeClasses={themeClasses} />
         </div>
       </div>
@@ -161,14 +161,14 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
           <div className={`absolute -bottom-24 -right-16 w-96 h-96 border-[12px] transition-colors ${theme === 'light' ? 'border-gray-200/90' : 'border-gray-700/50'}`}></div>
       </div>
 
-      <div className="relative flex w-full flex-1 justify-center pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative flex w-full flex-1 justify-center pt-32 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <main className="relative z-10 w-full max-w-5xl">
             <Reveal className="mb-12 md:mb-20">
-              <div className={`mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.12em] ${themeClasses.textSubtle}`}>
+              <div className={`type-eyebrow mb-4 flex items-center gap-3 font-mono ${themeClasses.textSubtle}`}>
                 02
                 <span className="section-eyebrow-rule h-px bg-current" aria-hidden="true"></span>
               </div>
-              <h1 className={`text-4xl font-light uppercase leading-tight tracking-[0.12em] md:text-6xl ${themeClasses.textStrong}`}>
+              <h1 className={`type-page-title font-light uppercase ${themeClasses.textStrong}`}>
                 {currentContent.title}
               </h1>
             </Reveal>
@@ -255,7 +255,7 @@ export default function Projects({ theme, toggleTheme, language, toggleLanguage 
                 href={selectedProject?.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-between w-full text-lg font-semibold transition-colors
+                className={`type-control flex w-full items-center justify-between font-semibold transition-colors
                            ${theme === 'light' 
                              ? 'text-gray-800 hover:text-sky-600' 
                              : 'text-white hover:text-sky-400'}`}

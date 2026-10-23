@@ -90,11 +90,11 @@ export default function ProjectDetail({ project, theme, language }) {
     <div className={`w-full transition-colors duration-500`}>
       <main>
         <h1
-          className={`text-4xl md:text-5xl font-bold tracking-tight ${themeClasses.textPrimary}`}
+          className={`type-page-title font-bold tracking-tight ${themeClasses.textPrimary}`}
         >
           {project.title}
         </h1>
-        <p className={`mt-3 text-lg ${themeClasses.textSecondary}`}>
+        <p className={`type-body mt-3 ${themeClasses.textSecondary}`}>
           {project.subtitle}
         </p>
 
@@ -108,12 +108,12 @@ export default function ProjectDetail({ project, theme, language }) {
 
         <section className="mb-10">
           <h2
-            className={`text-2xl font-semibold mb-4 border-b pb-2 ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
+            className={`type-section-title mb-4 border-b pb-2 font-semibold ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
           >
             {currentContent.about}
           </h2>
           <p
-            className={`text-base leading-relaxed ${themeClasses.textSecondary}`}
+            className={`type-body ${themeClasses.textSecondary}`}
           >
             {project.longDescription}
           </p>
@@ -121,7 +121,7 @@ export default function ProjectDetail({ project, theme, language }) {
 
         <section className="mb-10">
           <h2
-            className={`text-2xl font-semibold mb-4 border-b pb-2 ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
+            className={`type-section-title mb-4 border-b pb-2 font-semibold ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
           >
             {currentContent.technologies}
           </h2>
@@ -129,7 +129,7 @@ export default function ProjectDetail({ project, theme, language }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium shadow-2xl ${themeClasses.tagBg} ${themeClasses.tagText}`}
+                className={`type-control rounded-md px-4 py-1.5 font-medium shadow-2xl ${themeClasses.tagBg} ${themeClasses.tagText}`}
               >
                 {tag}
               </span>
@@ -140,7 +140,7 @@ export default function ProjectDetail({ project, theme, language }) {
         {hasAdditionalLinks && (
           <section className="mb-10">
             <h2
-              className={`text-2xl font-semibold mb-4 border-b pb-2 ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
+              className={`type-section-title mb-4 border-b pb-2 font-semibold ${themeClasses.textPrimary} ${themeClasses.sectionBorder}`}
             >
               {currentContent.links}
             </h2>

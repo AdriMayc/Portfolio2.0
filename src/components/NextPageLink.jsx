@@ -39,14 +39,14 @@ export default function NextPageLink({ currentPath, language, theme }) {
       >
         <span>
           <small
-            className={`mb-2 block text-xs uppercase tracking-[0.2em] ${
+            className={`type-eyebrow mb-2 block uppercase tracking-[0.2em] ${
               isLight ? "text-gray-500" : "text-gray-400"
             }`}
           >
             {language === "pt" ? "Próxima página" : "Next page"}
           </small>
           <span
-            className={`block text-[clamp(1.8rem,5vw,3.6rem)] font-extralight uppercase tracking-[0.1em] transition-[letter-spacing,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:tracking-[0.17em] ${
+            className={`type-page-title block font-extralight uppercase tracking-[0.1em] transition-[letter-spacing,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:tracking-[0.17em] ${
               isLight ? "text-gray-800" : "text-gray-100"
             }`}
           >

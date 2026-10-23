@@ -102,16 +102,16 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
 
         {/* Main content - centralizado igual ao About */}
         <main className="relative z-10 w-full max-w-5xl">
-          <Reveal className={`flex items-center gap-3 mb-7 font-mono text-[0.8rem] tracking-[0.12em] opacity-70 ${themeClasses.textSubtle}`}>
+          <Reveal className={`type-eyebrow flex items-center gap-3 mb-7 font-mono opacity-70 ${themeClasses.textSubtle}`}>
             <span className="section-eyebrow-rule h-px shrink-0 bg-current" aria-hidden="true"></span>
             {currentContent.eyebrow}
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="text-4xl font-light uppercase tracking-widest md:text-5xl pb-6">
+            <h1 className="type-page-title pb-6 font-light uppercase">
               {currentContent.title}
             </h1>
           </Reveal>
-          <div className={`max-w-5xl space-y-6 leading-relaxed font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
+          <div className={`type-body max-w-5xl space-y-6 font-light ${theme === "light" ? "text-gray-700" : "text-gray-300"}`}>
             <Reveal delay={250}>
               <p>{currentContent.p1}</p>
             </Reveal>
@@ -138,20 +138,20 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
           </div>
 
           <Reveal delay={450} className="mt-7 text">
-            <span className={`block mb-3 text-[0.8rem] tracking-[0.12em] uppercase ${themeClasses.textSubtle}`}>
+            <span className={`type-eyebrow block mb-3 uppercase ${themeClasses.textSubtle}`}>
               {currentContent.recentAchievements}
             </span>
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/about"
-                className={`inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border text-[0.82rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
+                className={`type-control inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
                   theme === "light"
                     ? "border-gray-300 bg-white/55 text-gray-600 hover:border-indigo-600 focus-visible:border-indigo-600 hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]"
                     : "border-gray-700 bg-gray-800/50 text-gray-300 hover:border-indigo-400 focus-visible:border-indigo-400 hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]"
                 } hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]`}
                 aria-label={`${currentContent.awsAchievement}: AWS CCP`}
               >
-                <span className={`grid place-items-center w-6 h-6 rounded-full text-[0.7rem] font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">☁</span>
+                <span className={`type-eyebrow grid h-6 w-6 place-items-center rounded-full font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">☁</span>
                 <span>
                   <strong className={themeClasses.textStrong}>AWS CCP</strong>
                   {" · "}
@@ -160,14 +160,14 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
               </Link>
               <Link
                 to="/about"
-                className={`inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border text-[0.82rem] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
+                className={`type-control inline-flex items-center gap-[0.6rem] pt-[0.55rem] pr-4 pb-[0.55rem] pl-[0.6rem] rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 ${
                   theme === "light"
                     ? "border-gray-300 bg-white/55 text-gray-600 hover:border-indigo-600 focus-visible:border-indigo-600 hover:shadow-[0_10px_24px_-12px_#4f46e5] focus-visible:shadow-[0_10px_24px_-12px_#4f46e5]"
                     : "border-gray-700 bg-gray-800/50 text-gray-300 hover:border-indigo-400 focus-visible:border-indigo-400 hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]"
                 } hover:shadow-[0_10px_24px_-12px_#818cf8] focus-visible:shadow-[0_10px_24px_-12px_#818cf8]`}
                 aria-label={`${currentContent.fellowshipAchievement}: AIR/R Fellowship`}
               >
-                <span className={`grid place-items-center w-6 h-6 rounded-full text-[0.7rem] font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">★</span>
+                <span className={`type-eyebrow grid h-6 w-6 place-items-center rounded-full font-bold ${theme === "light" ? "text-indigo-800 bg-indigo-100" : "text-indigo-200 bg-indigo-900"}`} aria-hidden="true">★</span>
                 <span>
                   <strong className={themeClasses.textStrong}>AIR/R Fellowship</strong>
                   {" · "}
@@ -212,7 +212,7 @@ export default function Home({ theme, toggleTheme, language, toggleLanguage }) {
               {technologies.map((technology) => (
                 <span
                   key={`${copy}-${technology}`}
-                  className={`whitespace-nowrap px-6 text-[0.8rem] uppercase tracking-[0.24em] transition-colors duration-300 after:ml-12 after:font-mono after:text-gray-500 after:content-['/'] ${
+                  className={`type-eyebrow whitespace-nowrap px-6 uppercase tracking-[0.24em] transition-colors duration-300 after:ml-12 after:font-mono after:text-gray-500 after:content-['/'] ${
                     theme === "light"
                       ? "text-gray-600 hover:text-indigo-600"
                       : "text-gray-300 hover:text-indigo-400"
